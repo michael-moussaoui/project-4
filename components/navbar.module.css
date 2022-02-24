@@ -1,0 +1,12 @@
+.navbar {
+  height: 10vh;
+  background: lightgray;
+  color: darkgray;
+}
+.navbar_logo {
+  width: 4vw;
+}
+
+.navbar_link {
+  color: darkgray;
+}
