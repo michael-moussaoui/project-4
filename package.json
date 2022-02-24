@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.8.5",
+    "@cloudinary/react": "^1.1.0",
+    "@cloudinary/url-gen": "^1.6.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@headlessui/react": "^1.5.0",
