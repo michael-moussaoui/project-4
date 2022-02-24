@@ -2,24 +2,53 @@
   /* padding: 0 2rem; */
   /* position: relative; */
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-image: url(/camera.jpg);
   background-repeat: no-repeat;
-  /* background-size: 100%; */
-  background-position: center;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: lightgray;
 }
 
 .main {
-  min-height: 100vh;
-  min-width: 100vw;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   padding: 4rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Black w/opacity/see-through */
+  border-radius: 15px;
+  box-shadow: 0 3px 8px lightgray;
 }
-
+.li {
+  margin: 0 1.2rem 0 1.2rem;
+  padding: 0.4rem;
+  border-radius: 8px 8px 0 0;
+}
+.li:hover {
+  /* color: rgb(51 65 85); */
+  border-bottom: 2px solid lightgray;
+  transition: 0.5s;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Black w/opacity/see-through */
+}
 /* .footer {
   display: flex;
   flex: 1;
@@ -27,16 +56,16 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.footer a {
+/* .footer a {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-}
+} */
 
-.title a {
+/* .title a {
   color: #0070f3;
   text-decoration: none;
 }
@@ -45,7 +74,7 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
-}
+} */
 
 .title {
   margin: 0;
@@ -56,6 +85,11 @@
 .title,
 .description {
   text-align: center;
+  color: #fff;
+  color: lightgray;
+  font-family: Baskervville, Marck Script, Monaco, Lucida Console,
+    Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,
+    Courier New, monospace;
 }
 
 .description {
@@ -64,16 +98,7 @@
   font-size: 1.5rem;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
+/* .grid {
   display: flex;
   align-items: center;
   justify-content: center;
