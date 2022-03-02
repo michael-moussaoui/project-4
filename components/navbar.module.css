@@ -1,7 +1,9 @@
 .navbar {
   height: 10vh;
-  background: lightgray;
+  background: transparent;
   color: darkgray;
+  position: fixed;
+  width: 100vw;
 }
 .navbar_logo {
   width: 4vw;

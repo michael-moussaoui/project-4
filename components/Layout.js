@@ -1,27 +1,30 @@
 import Navbar from "../components/Navbar"
 import styles from "./layout.module.css"
-import Head from "next/head"
-
 import React from 'react'
+import Head from "next/head"
+import Footer from "./Footer"
 
 
-export default function Layout( {children , page}) {
-  return (
-    <html> 
-            <Head>
-                <title>{page}</title>
 
-            </Head>
-            <body className={styles.container}>
-                <header>
-                    <Navbar />
-
-                </header>
-            </body>
-        </html>
-
-    )
-}
   
-
-
+const Layout = ({ children, page, className, ...rest }) => {
+    let layoutClassName = styles.layout;
+  
+    if ( className ) {
+      layoutClassName = `${layoutClassName} ${className}`
+    }
+  
+    return (
+      <body className={layoutClassName} {...rest}>
+        <Head>
+        <title>{page}</title>
+        </Head>
+        <Navbar/>
+        <main className={styles.main}>{ children }</main>
+        
+      </body>
+    )
+  }
+  
+  export default Layout;
+  

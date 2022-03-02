@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  /* position: fixed; */
+  bottom: 0;
+  height: 8vh;
+  width: 100vw;
+  background: lightgray;
+}
+
+.icones {
+  font-size: 2.5rem;
+  color: gray;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.icones:hover {
+  color: darkgray;
+}

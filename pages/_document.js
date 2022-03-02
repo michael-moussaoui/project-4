@@ -7,12 +7,19 @@ import Document, {
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx)
+        let pageProps = null;
 
-        return initialProps
+        
+        const initialProps = await Document.getInitialProps(ctx);
+        return { ...initialProps, pageProps }
     }
 
     render() {
+        const { pageProps } = this.props;
+        
+        console.log("This is my page props:");
+        console.log(pageProps);
+
         return (
             <Html lang='fr'>
                 <Head>
