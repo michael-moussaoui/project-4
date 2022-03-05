@@ -1,8 +1,12 @@
+// import Navbar from "../components/Navbar"
 import Navbar from "../components/Navbar"
 import styles from "./layout.module.css"
 import React from 'react'
 import Head from "next/head"
+
+ 
 import Footer from "./Footer"
+
 
 
 
@@ -17,9 +21,11 @@ const Layout = ({ children, page, className, ...rest }) => {
     return (
       <body className={layoutClassName} {...rest}>
         <Head>
-        <title>{page}</title>
+        
+        <title className={styles.title}>{page}</title>
         </Head>
         <Navbar/>
+        
         <main className={styles.main}>{ children }</main>
         
       </body>

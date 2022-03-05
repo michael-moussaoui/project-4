@@ -1,5 +1,7 @@
-import Layout from "../components/Layout";
-import Navbar from "../components/Navbar";
+import Layout from "../components/Layout"
+// import styles from "../components/cardTarifs.css"
+// import Navbar from "../components/Navbar";
+// import Navbar from "../components/NavbarHome";
 
 import { Container,
     chakra,
@@ -14,8 +16,9 @@ import { Container,
     Icon,
     useColorModeValue,
     UnorderedList,
-    ListItem } from "@chakra-ui/react";
-// import chakraUiIcon from "@chakra-ui/icon";
+    ListItem, 
+    StylesProvider} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 // import chakraUiCssReset from "@chakra-ui/css-reset";
 // import chakraUiTheme from "@chakra-ui/theme";
 
@@ -27,37 +30,72 @@ export default function tarifs(){
     return(
         <Layout>
         <ChakraProvider>
-     <h1 className="font-marck text-7xl absolute top-28 left-1/2 text-gray-dark -translate-x-1/2">Tarifs - Prestations</h1>
+     <h1 className="  font-basker lg:text-5xl md:text-5xl sm:text-2xl xs:text-base text-center  text-slate-light absolute md:top-28  sm:top-16 left-1/2 -translate-x-1/2 xs:hidden md:block  sm:w-52  md:w-10/12 ">Tarifs - Prestations</h1>
      <Grid 
-     height="150vh" 
-     width="100vw" 
-     templateColumns='repeat(3, 1fr)' 
-     gap={50} pt={300}  bgGradient="linear(to-r,#454545, #999)"
-     
+    //  height="150vh"  
+    //  width="100vw" 
+    w='full'
+    minHeight='150vh'
+    templateColumns={{lg:'repeat(3, 1fr)', md: 'repeat(2,1fr)', sm:'repeat(1, 1fr)'}}  
+    gap={50}
+    pt={300} 
+    // pt={{lg:'300', md:'60', sm:'52'}}
+    //  bgGradient="linear(to-r,#454545, #999)"
+    bgImage= 'url(./camera.jpg)'
+    bgRepeat = 'no-repeat'
+    bgPosition = 'center center'
+    bgAttachment = 'fixed'
+    bgSize = 'cover'
+    color= 'lightgray'
+    pb={125}
      
      >
-  <GridItem mx='14'  w='70%' h='300'  bgImage="url(./camera.jpg)" >
+  <GridItem 
+  mx='14'  
+  w='70%' 
+  h='300'
+  // mx={{lg:'14', md:'12' }} 
+  // w={{lg:'70%', md:'80%', sm:'90%'}} 
+  // h={{lg:'300',md:'300', sm:'200px'}}
+  bg= 'rgba(0,0,0,0.6)'
+  boxShadow = '0 3px 8px lightgray'
+  _hover={{ bgImage :"url(./male-2322802_640.jpg)",
+  bgAttachment:"center",
+    bgSize: "cover"}}
+  cursor= 'pointer'    >
+  
   <chakra.h3
-                  py={150}
+                  py={140}
                   textAlign="center"
-
                   fontWeight="bold"
                   textTransform="uppercase"
                   color={ "white"}
-                  letterSpacing={1}
-                >
+                  letterSpacing={1} >
                   Juste moi
                 </chakra.h3>
-  <chakra.span
+                
+                    <chakra.span
                     fontWeight="bold"
-                    color={"gray.800"}
-                  >
+                    color='lightgray'>           
                     130 Euros
                     </chakra.span>
   </GridItem>
-  <GridItem mx='14'  w='70%' h='300'  bgImage="url(./camera.jpg)" >
+  <GridItem 
+  mx='14'  
+  w='70%' 
+  h='300'
+  // mx={{lg:'14', md:'12' }} 
+  // w={{lg:'70%', md:'80%', sm:'90%'}} 
+  // h={{lg:'300',md:'300', sm:'200px'}}
+  bg= 'rgba(0,0,0,0.6)'
+  boxShadow = '0 3px 8px lightgray'
+  _hover={{ bgImage :"url(./black-and-white-2590810_640.jpg)",
+  bgAttachment:"center",
+    bgSize: "cover"
+  }}
+  cursor= 'pointer' >
   <chakra.h3
-                  py={150}
+                  py={140}
                   textAlign="center"
 
                   fontWeight="bold"
@@ -69,16 +107,25 @@ export default function tarifs(){
                 </chakra.h3>
   <chakra.span
                     fontWeight="bold"
-                    color={"gray.800"}
+                    color='lightgray'
                   >
                     195 Euros
                     </chakra.span>
   </GridItem>
-  <GridItem mx='14'  w='70%' h='300'  bgImage="url(./camera.jpg)" >
+  <GridItem 
+  mx='14'  
+  w='70%' 
+  h='300'
+  bg= 'rgba(0,0,0,0.6)'
+  boxShadow = '0 3px 8px lightgray'
+  _hover={{ bgImage :"url(./family-6475821_640.jpg)",
+  bgAttachment:"center",
+    bgSize: "cover"
+  }}
+  cursor= 'pointer'   >
   <chakra.h3
-                  py={150}
+                  py={140}
                   textAlign="center"
-
                   fontWeight="bold"
                   textTransform="uppercase"
                   color={ "white"}
@@ -88,7 +135,7 @@ export default function tarifs(){
                 </chakra.h3>
   <chakra.span
                     fontWeight="bold"
-                    color={"gray.800"}
+                    color='lightgray'
                   >
                     220 Euros
                     </chakra.span>
@@ -96,34 +143,50 @@ export default function tarifs(){
   <GridItem 
   mx='14'  
   w='70%' 
-  h='300'  
-  bgImage="url(./camera.jpg)"
+  h='300' 
+  transition='ease-in'
+  transitionDuration='300'
+  bg= 'rgba(0,0,0,0.6)'
+  boxShadow = '0 3px 8px lightgray'
+  cursor= 'pointer'
+  _hover={{ bgImage :"url(./baptism-4598749_640.jpg)",
+  bgAttachment:"center",
+    bgSize: "cover"}}
    
    >
   <chakra.h3
-                  py={150}
+                  py={140}
                   textAlign="center"
 
                   fontWeight="bold"
                   textTransform="uppercase"
-                  color={ "white"}
-                  _hover={{ color :"gray"}}
+                  color='lightgray'
                   letterSpacing={1}
                 >
                   Il etait une fois
                 </chakra.h3>
   <chakra.span
                     fontWeight="bold"
-                    color={"gray.800"}
+                    color="lightgray"
                   >
                     160 Euros
                     </chakra.span>
   </GridItem>
-  <GridItem mx='14'  w='70%' h='300'  bgImage="url(./camera.jpg)" >
+  <GridItem 
+  mx='14'  
+  w='70%' 
+  h='300'  
+  bg= 'rgba(0,0,0,0.6)'
+  boxShadow = '0 3px 8px lightgray'
+  _hover={
+    { bgImage :"url(./bebe-1237704_640.jpg)",
+    bgAttachment:"center",
+    bgSize: "cover"
+    }}
+  cursor= 'pointer' >
   <chakra.h3
-                  py={150}
+                  py={140}
                   textAlign="center"
-
                   fontWeight="bold"
                   textTransform="uppercase"
                   color={ "white"}
@@ -133,16 +196,22 @@ export default function tarifs(){
                 </chakra.h3>
   <chakra.span
                     fontWeight="bold"
-                    color={"gray.800"}
+                    color='lightgray'
                   >
                     100 Euros
                     </chakra.span>
   </GridItem>
-  <GridItem mx='14'  w='70%' h='300'  bgImage="url(./camera.jpg)" >
+  <GridItem 
+  mx='14'  
+  w='70%' 
+  h='300'  
+  bg= 'rgba(0,0,0,0.6)'
+  boxShadow = '0 3px 8px lightgray'
+  _hover={{ bgImage :"url(./couple-1850073_640.jpg)"}}
+  cursor= 'pointer' >
   <chakra.h3
-                  py={150}
+                  py={140}
                   textAlign="center"
-
                   fontWeight="bold"
                   textTransform="uppercase"
                   color={ "white"}
@@ -152,13 +221,13 @@ export default function tarifs(){
                 </chakra.h3>
   <chakra.span
                     fontWeight="bold"
-                    color={"gray.800"}
+                    color='lightgray'
                   >
                     130 Euros
                     </chakra.span>
   </GridItem>
 </Grid>
-<Footer m="5vh"/>
+<Footer />
  
           {/* <Flex
             bgGradient="linear(to-r,#454545, #999)"

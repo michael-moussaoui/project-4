@@ -1,7 +1,7 @@
 .navbar {
   height: 10vh;
   background: transparent;
-  color: darkgray;
+  color: lightgray;
   position: fixed;
   width: 100vw;
 }
@@ -10,5 +10,29 @@
 }
 
 .navbar_link {
-  color: darkgray;
+  color: lightgray;
+}
+.navbar_item {
+  margin: 1.25rem auto 1.25rem auto;
+  padding: 0.2rem;
+  border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 760px) {
+  .navbar_item {
+    width: 70%;
+    margin: 0.5rem auto;
+  }
+}
+@media (min-width: 767px) {
+  .navbar_item:hover {
+    border-bottom: 2px solid lightgray;
+    transition: 0.5s;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.6
+    ); /* Black w/opacity/see-through */
+  }
 }

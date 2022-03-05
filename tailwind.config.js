@@ -5,12 +5,15 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
+      xs: '280px',
+      sm: '320px',
+      md: '760px',
       lg: '976px',
       xl: '1440px',
     },
     colors: {
+      'black':'#000',
+      'white':'#fff',
       'blue': '#1fb6ff',
       'purple': '#7e5bef',
       'pink': '#ff49db',

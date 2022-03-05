@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Baskervville&display=swap");
+
 .footer {
   position: absolute;
   /* position: fixed; */
@@ -16,4 +18,8 @@
 
 .icones:hover {
   color: darkgray;
+}
+
+.title {
+  font-family: "Baskervville";
 }

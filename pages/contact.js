@@ -32,6 +32,7 @@ import styles from '../components/footer.module.css'
 import Footer from '../components/Footer';
 
 
+
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard('charlescantin@cantin.com');
   return (
@@ -56,6 +57,8 @@ export default function ContactFormWithSocialButtons() {
         <Box width='90vw'>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <Heading
+              color=' lightgray;'
+              fontFamily={styles.title}
               fontSize={{
                 base: '4xl',
                 md: '5xl',
@@ -74,10 +77,7 @@ export default function ContactFormWithSocialButtons() {
                 align="center"
                 justify="space-around"
                 direction={{ base: 'row', md: 'column' }}>
-                <Tooltip
-                  label={hasCopied ? 'Email Copied!' : 'Copy Email'}
-                  closeOnClick={false}
-                  hasArrow>
+                
                   <FontAwesomeIcon
                     aria-label="email"
                     variant="ghost"
@@ -88,10 +88,9 @@ export default function ContactFormWithSocialButtons() {
                       bg: 'blue.500',
                       color: useColorModeValue('white', 'gray.700'),
                     }}
-                    onClick={onCopy}
-                    isRound
+                   
                   />
-                </Tooltip>
+                
 
                 <Link href="#">
                 <FontAwesomeIcon
@@ -206,36 +205,6 @@ export default function ContactFormWithSocialButtons() {
 }
 
 
-// import { Box, Flex, Heading, Input, Text,  } from "@chakra-ui/react";
-// import { useState } from "react";
-// import Layout from "../components/Layout";
-
-
-// export default function contact() {
-  
-//     const [value, setValue] = React.useState('')
-//     const handleChange = (event) => setValue(event.target.value)
-  
-//   return (
-//     <Layout>
-//     <Flex width="full" align="center" justifyContent="center" >
-//       <Box p={2}>
-//         <Box textAlign="center" >
-//           <Heading position="absolute" top="15vh" transform="translateX(-50%)" >Me contacter</Heading>
-//         </Box>
-//       </Box>
-//     </Flex>
-//     <Text mb='8px'>Nom {value}</Text>
-//       <Input
-//         value={value}
-//         onChange={handleChange}
-//         placeholder='Votre nom'
-//         size='sm'
-//       />
-      
-// </Layout>
-//   );
-// }
 
 
 
@@ -243,43 +212,4 @@ export default function ContactFormWithSocialButtons() {
 
 
 
-// import Head from "next/head";
-//     import { useState } from "react";
-//     import Gallery from "../components/ImageDetail";
-// import Layout from "../components/Layout";
-//     import styles from "../styles/Home.module.css";
-//     export default function Home({ stuff }) {
-//       const [photos, setPhotos] = useState(stuff);
-//       return (
-//           <Layout>
-//         <div className={styles.container}>
-//           <Head>
-//             <title>Photo Gallery</title>
-//             <link rel="icon" href="/favicon.ico" />
-//           </Head>
-//           <main className={styles.main}>
-//             <div className={styles.fade}>
-//               <div className={styles.gridContainer}>
-//                 {photos &&
-//                   photos.map((detail) => (
-//                     <Gallery
-//                       key={detail.id}
-//                       thumbnailUrl={detail.img.formats.small.url}
-//                       title={detail.name}
-//                       id={detail.id}
-//                     />
-//                   ))}
-//               </div>
-//             </div>
-//           </main>
-//         </div>
-//         </Layout>
-//       );
-//     }
-//     export async function getStaticProps() {
-//       const results = await fetch(`https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image`);
-//       const stuff = await results.json();
-//       return {
-//         props: { stuff },
-//       };
-//     }
+
