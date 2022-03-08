@@ -74,8 +74,8 @@
 
 @media (max-width: 768px) {
   .main {
-    width: 80%;
-    top: 70%;
+    width: 85%;
+    top: 50%;
   }
   .title {
     font-size: 2rem;

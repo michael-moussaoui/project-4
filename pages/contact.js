@@ -28,18 +28,30 @@ import {
     
   } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 import styles from '../components/footer.module.css'
 import Footer from '../components/Footer';
+
 
 
 
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard('charlescantin@cantin.com');
   return (
+    <motion.div
+     initial={{ scaleY:0}}
+     animate={{ scaleY:1}}
+     transition={{ duration: 0.5 }}
+    exit={{ scaleY: 0}}>
     <Layout>
     <Flex
       // bg={useColorModeValue('gray.100', 'gray.900')}
       bgGradient="linear(to-r,#454545, #999)"
+      bgImage="url(./camera_5.jpg)"
+      bgRepeat = 'no-repeat'
+      bgPosition = 'center center'
+      bgAttachment = 'fixed'
+      bgSize = 'cover'
       align="center"
       justify="center"
       height='100vh'
@@ -56,7 +68,7 @@ export default function ContactFormWithSocialButtons() {
         p={{ base: 5, lg: 16 }}>
         <Box width='90vw'>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-            <Heading
+            <Heading 
               color=' lightgray;'
               fontFamily={styles.title}
               fontSize={{
@@ -138,10 +150,10 @@ export default function ContactFormWithSocialButtons() {
 
               <Box
                 // bg={useColorModeValue('white', 'gray.700')}
-                bgGradient="linear(to-l #999, #454545)"
+                // bgGradient="linear(to-l #999, #454545)"
                 borderRadius="lg"
                 p={8}
-                color={useColorModeValue('gray.700', 'whiteAlpha.900')}
+                color={useColorModeValue('lightgray', 'whiteAlpha.900')}
                 shadow="xl"
                 
                 width={{ base:'90vw', md:'40vw'}}
@@ -149,7 +161,12 @@ export default function ContactFormWithSocialButtons() {
                 
                 <VStack spacing={5}>
                   <FormControl isRequired>
-                    <FormLabel>Nom</FormLabel>
+                    <FormLabel
+                    backgroundColor= "rgba(0,0,0,0.6)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}>
+                    Nom</FormLabel>
 
                     <InputGroup>
                       <InputLeftElement  />
@@ -158,7 +175,12 @@ export default function ContactFormWithSocialButtons() {
                   </FormControl>
 
                   <FormControl isRequired>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel
+                    backgroundColor= "rgba(0,0,0,0.6)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}>
+                    Email</FormLabel>
 
                     <InputGroup>
                       <InputLeftElement  />
@@ -171,7 +193,12 @@ export default function ContactFormWithSocialButtons() {
                   </FormControl>
 
                   <FormControl isRequired>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel
+                    backgroundColor= "rgba(0,0,0,0.6)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}>
+                    Message</FormLabel>
 
                     <Textarea
                       name="message"
@@ -182,12 +209,17 @@ export default function ContactFormWithSocialButtons() {
                   </FormControl>
 
                   <Button
-                    colorScheme="#454545"
-                    width='70%'
-                    bg="darkgray"
+                    // colorScheme="#454545"
+                    backgroundColor= "rgba(0,0,0,0.6)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}
+                    
+                    // bg="darkgray"
                     color="white"
                     _hover={{
-                      bg: 'lightgray',
+                      bg: 'transparent',
+                      border: 'solid 2px lightgray'
                     }}
                     isFullWidth>
                     Envoyer
@@ -201,6 +233,7 @@ export default function ContactFormWithSocialButtons() {
     </Flex>
     <Footer></Footer>
       </Layout>
+      </motion.div>
   );
 }
 
