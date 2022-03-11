@@ -7,14 +7,14 @@ import { chakra, Flex, Box, Grid, GridItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 
+
 let items = [
   
-  { title:"Mariage", price : "130 Euros", hover :{bgImage:"url(./male-2322802_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  { title:"Grossesse", price : "195 Euros", hover :{bgImage:"url(./black-and-white-2590810_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  { title:"Bébé", price : "220 Euros", hover :{bgImage:"url(./family-6475821_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  { title:"Famille", price : "160 Euros",hover :{bgImage:"url(./baptism-4598749_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  { title:"Baptême", price : "100 Euros",hover :{bgImage:"url(./bebe-1237704_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  { title:"Couple", price : "Sur devis",hover :{bgImage:"url(./couple-1850073_640.jpg)", bgAttachment:"center", bgSize: "cover"}}
+  {  hover :{bgImage:"url(./male-2322802_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
+  {  hover :{bgImage:"url(./black-and-white-2590810_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
+  {  hover :{bgImage:"url(./family-6475821_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
+  {  hover :{bgImage:"url(./baptism-4598749_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
+  // { hover :{bgImage:"url(./bebe-1237704_640.jpg)", bgAttachme{ hover :{bgImage:"url(./couple-1850073_640.jpg)", bgAttachment:"center", bgSize: "cover"}}
 
 ]
 
@@ -40,14 +40,33 @@ export default function galerie({ images }) {
 	overflowX="hidden">
     <h1 className=" text-7xl font-basker  absolute top-28 left-1/2 text-lightgray -translate-x-1/2">Galerie</h1>
 	
-
+ {/* Mariage
+ Grossesse
+ Bébé
+ Famille 
+ baptême
+ Couple */}
+ {/* <ul className={`navbar_links flex md:flex-row mr-10 sm:flex-col sm:absolute md:left-1/2 sm:-translate-x-1/2 sm:content-center sm:-translate-y-5  sm:mt-10  md:inline-flex md:-translate-y-10 w-3/4 mx-auto transition-all duration-1000 ease-in ${open ? ' sm:left-1/2 sm:mb-0':' sm:-left-96 sm:mb-40'}`}>
+                { links.map((link) => (
+                    
+                    <li
+                     key={link}
+                     className={styles.navbar_item} >
+                        <Link href={link.link}>
+                            <a className="navbar_link">{link.name}</a>
+                        </Link>
+                    </li>
+                    ))
+                }
+                </ul> */}
         <Grid
         w='full'
     minHeight='150vh'
     templateColumns={{lg:'repeat(3, 1fr)', md: 'repeat(2,1fr)', sm:'repeat(1, 1fr)'}}  
     gap={50}
     pt={300} 
-    bgImage= 'url(./camera_6.jpg)'
+    
+    
     bgRepeat = 'no-repeat'
     bgPosition = 'center center'
     bgAttachment = 'fixed'
@@ -58,13 +77,14 @@ export default function galerie({ images }) {
     { items.map((item) => (
   <GridItem 
       key={item}
-  mx="14" 
+  mx="14"     
   w="70%"
   h="300"
   bg= "rgba(0,0,0,0.6)"
   boxShadow = " 0 3px 8px lightgray"
   _hover={item.hover}
   cursor= "pointer" >
+  <Image src =  '/camera_4.jpg' width="400%" height="330" alt=""/>
   
   <chakra.h3
   
@@ -82,7 +102,9 @@ export default function galerie({ images }) {
                     fontWeight="bold"
                     color='lightgray'>           
                     {item.price}
-                    </chakra.span>           
+                    </chakra.span>
+                    
+             
   </GridItem>
   ))
     } 

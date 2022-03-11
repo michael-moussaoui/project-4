@@ -45,7 +45,7 @@ export default function tarifs(){
         <ChakraProvider>
      <h1 className="  font-basker lg:text-5xl md:text-5xl sm:text-2xl xs:text-base text-center  text-slate-light absolute md:top-28  sm:top-16 left-1/2 -translate-x-1/2 xs:hidden md:block  sm:w-52  md:w-10/12 ">Tarifs - Prestations</h1>
      <Grid 
-    // className={styles.grid}
+  
     w='full'
     minHeight='150vh'
     templateColumns={{lg:'repeat(3, 1fr)', md: 'repeat(2,1fr)', sm:'repeat(1, 1fr)'}}  
@@ -56,9 +56,9 @@ export default function tarifs(){
     bgPosition = 'center center'
     bgAttachment = 'fixed'
     bgSize = 'cover'
-    color= 'lightgray'
+    color='tomato'
     pb={125} 
-    _hover={{color: "transparent"}}
+    
             
      >
     { items.map((item) => (
@@ -70,7 +70,7 @@ export default function tarifs(){
   bg= "rgba(0,0,0,0.6)"
   boxShadow = " 0 3px 8px lightgray"
   _hover={item.hover} 
-  
+  color= 'white'
   cursor= "pointer" >
 
   
@@ -83,8 +83,6 @@ export default function tarifs(){
                   textAlign="center"
                   fontWeight="bold"
                   textTransform="uppercase"
-                  color={ "white"}
-                  // _hover={{color: "transparent"}} 
                   letterSpacing={1} >
                   {item.title}
 
@@ -103,7 +101,7 @@ export default function tarifs(){
                     position="relative"
                     top=" 75%"
                     fontWeight="bold"
-                    color='lightgray'>           
+                    >          
                     {item.price}
                     </chakra.span>           
   </GridItem>
