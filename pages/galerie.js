@@ -6,60 +6,112 @@ import Footer from "../components/Footer";
 import { chakra, Flex, Box, Grid, GridItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
+import babies from "../db/baby"
+import baptisms from "../db/baptism"
+import couples from "../db/couple"
+import familys from "../db/family"
+import portraits from "../db/portrait"
+import pregnants from "../db/pregnant"
+import weddings from "../db/wedding"
+import { useEffect, useState } from "react";
+
 
 
 let items = [
-  
-  {  hover :{bgImage:"url(./male-2322802_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  {  hover :{bgImage:"url(./black-and-white-2590810_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  {  hover :{bgImage:"url(./family-6475821_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  {  hover :{bgImage:"url(./baptism-4598749_640.jpg)", bgAttachment:"center", bgSize: "cover"}},
-  // { hover :{bgImage:"url(./bebe-1237704_640.jpg)", bgAttachme{ hover :{bgImage:"url(./couple-1850073_640.jpg)", bgAttachment:"center", bgSize: "cover"}}
-
+  {title : "Portrait"},
+  {title : "Mariage"},
+  {title : "Grossesse"},
+  {title : "Bébé"},
+  {title : "Famille"},
+  {title : "Baptême"},
+  {title : "Couple"},
 ]
 
 
-export default function galerie({ images }) {
+export default function galerie() {
+  // const [photos, setPhotos] = useState ( [] )
+
+  // useEffect(() => {
+  //   setPhotos(portraits)
+  // },[] )
     
     return (
       <motion.div
-      initial={{ scaleY:0}}
+      initial={{ scaleY:0 , opacity:1}}
       animate={{ scaleY:1}} 
       transition={{ duration: 0.5 }}
-      exit={{ scaleY: 0}}>
+      exit={{ scaleY: 0, opacity:0}}>
     <Layout>
     <Flex 
-	height="150vh" 
-  width="100vw" 
-	bgImage="url(./camera_9.jpg)"
-  bgRepeat = 'no-repeat'
-  bgPosition = 'center center'
-  bgAttachment = 'fixed'
-  bgSize = 'cover'
-  color= 'lightgray'
-	overflowX="hidden">
+	    height="150vh" 
+      width="100vw" 
+	    bgImage="url(./camera_9.jpg)"
+      bgRepeat = 'no-repeat'
+      bgPosition = 'center center'
+      bgAttachment = 'fixed'
+      bgSize = 'cover'
+      color= 'lightgray'
+	    overflowX="hidden">
+
     <h1 className=" text-7xl font-basker  absolute top-28 left-1/2 text-lightgray -translate-x-1/2">Galerie</h1>
+
+    {/* <Grid 
+       display= 'grid'
+       gridTemplateColumns= '250px 1fr'
+
+    > */}
+    
+      <nav className=" h-full w-48 fixed text-xl mt-40 text-center "
+      
+      >
+      { items.map((item) => (
+    <ul className=" w-full "
+       
+       >
+      <li className=" block pl-5 pt-4 cursor-pointer w-full hover:translate-x-5 hover:bg-black "
+      key={item}
+       >
+      
+      {item.title}
+
+      </li>
+    </ul>
+
+    ))
+    }
+    </nav>
+    
+    <div className="w-full mt-20 ">
+        {familys.map(({id, picture}) => (
+    <div key={id} className="w-1/2 relative left-1/2 -translate-x-1/2   "> 
+          <img className=" mt-32 rounded-md " src= {picture} alt = {id}></img>
+
+    </div>
+    
+    ))}
+    </div>
+    
+    {/* </Grid> */}
+
 	
- {/* Mariage
- Grossesse
- Bébé
- Famille 
- baptême
- Couple */}
- {/* <ul className={`navbar_links flex md:flex-row mr-10 sm:flex-col sm:absolute md:left-1/2 sm:-translate-x-1/2 sm:content-center sm:-translate-y-5  sm:mt-10  md:inline-flex md:-translate-y-10 w-3/4 mx-auto transition-all duration-1000 ease-in ${open ? ' sm:left-1/2 sm:mb-0':' sm:-left-96 sm:mb-40'}`}>
-                { links.map((link) => (
-                    
-                    <li
-                     key={link}
-                     className={styles.navbar_item} >
-                        <Link href={link.link}>
-                            <a className="navbar_link">{link.name}</a>
-                        </Link>
-                    </li>
-                    ))
-                }
-                </ul> */}
-        <Grid
+     
+               
+       
+          
+               
+               
+        
+    <Footer m="5vh"/>
+	
+	</Flex>
+    </Layout>
+    <AnimatePresence exitBeforeEnter/>
+    </motion.div>
+    
+	)
+        }
+
+ {/* <Grid
         w='full'
     minHeight='150vh'
     templateColumns={{lg:'repeat(3, 1fr)', md: 'repeat(2,1fr)', sm:'repeat(1, 1fr)'}}  
@@ -94,71 +146,19 @@ export default function galerie({ images }) {
                   textTransform="uppercase"
                   color={ "white"}
                   letterSpacing={1} >
-                  {item.title}
+                  {/* {item.title} */}
                   
-                </chakra.h3>
+                {/* </chakra.h3>
    
                     <chakra.span
                     fontWeight="bold"
                     color='lightgray'>           
-                    {item.price}
+                    
                     </chakra.span>
                     
              
   </GridItem>
   ))
     } 
-</Grid>
+</Grid> */} 
         
-          
-               
-              
-          
-          
-        
-        
-    <Footer m="5vh"/>
-	</Flex>
-	
-    </Layout>
-    <AnimatePresence exitBeforeEnter/>
-    </motion.div>
-    
-	)
-        }
-
-// export async function getStaticProps() {
-//   const params = {
-//     expression: 'folder=""'
-//   }
-//   const paramString = Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`).join('&')
-//   const results = await fetch(`https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/search?${paramString}`, {
-//   headers: {
-//     Authorization: `Basic ${Buffer.from(process.env.CLOUDINARY_API_KEY + ':' + process.env.CLOUDINARY_API_SECRET).toString('base64')}`
-//   }
-// }).then(r => r.json());
-// const { resources } = results;
-
-// const images = resources?.map(resource => {
-//   const { width, height } = resource;
-  
-//   return {
-//     id: resource.asset_id,
-//     title: resource.public_id,
-//     image: resource.secure_url,
-//     width,
-//     height
-//   }
- 
-// });
-
-//   return  {
-//     props: {
-      
-         
-//     }
-    
-//   }
-
-
-// }

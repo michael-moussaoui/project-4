@@ -42,10 +42,10 @@ export default function ContactFormWithSocialButtons() {
      initial={{ scaleY:0}}
      animate={{ scaleY:1}}
      transition={{ duration: 0.5 }}
-    exit={{ scaleY: 0}}>
+     exit={{ scaleY: 0}}>
     <Layout>
     <Flex
-      // bg={useColorModeValue('gray.100', 'gray.900')}
+      
       bgGradient="linear(to-r,#454545, #999)"
       bgImage="url(./camera_5.jpg)"
       bgRepeat = 'no-repeat'

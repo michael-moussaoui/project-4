@@ -9,33 +9,20 @@ import { useEffect } from 'react'
 
 export default function Home() {
   
-  const x = useMotionValue(200);
-  const y = useMotionValue(200);
-
-  const rotateX = useTransform(y, [0, 400], [45, -45]);
-  const rotateY = useTransform(x, [0, 400], [-45, 45]);
-
-  function handleMouse(event) {
-      const rect = event.currentTarget.getBoundingClientRect();
-
-      x.set(event.clientX - rect.left);
-      y.set(event.clientY - rect.top);
-  }
- 
-      
-    
+   
 
   return (
+    <AnimatePresence exitBeforeEnter>
     <motion.div 
-     initial={{ scaleY:0}}
-     animate={{ scaleY:1}}
-     exit={{ scaleY: 0}}
-     transition={{ duration: 0.5 }}>
+     initial={{ translateX:-2000}}
+     animate={{ translateX:0}}
+     exit={{ translateX: 2000}}
+     transition={{ duration: 1.5 }}>
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
         
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/>
         
       </Head>
       
@@ -59,7 +46,7 @@ export default function Home() {
       </main>
  
     </div>
-    <AnimatePresence exitBeforeEnter/>
     </motion.div>
+    </AnimatePresence>
   )
 }

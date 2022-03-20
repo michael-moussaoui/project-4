@@ -1,21 +1,11 @@
 import Layout from "../components/Layout"
 import { Container,
     chakra,
-    Stack,
-    Flex,
-    Box,
-    Heading,
-    Text,
     Grid,
     GridItem,
     Image,
     Icon,
-    useColorModeValue,
-    UnorderedList,
-    ListItem, 
-    StylesProvider,
-    color,
-    styled} from "@chakra-ui/react";
+  } from "@chakra-ui/react";
 
 import { ChakraProvider } from "@chakra-ui/provider";
 import { motion } from "framer-motion";
@@ -37,10 +27,10 @@ let items = [
 export default function tarifs(){
     return(
       <motion.div
-      initial={{ scaleY:0}}
-      animate={{ scaleY:1}} 
-      exit={{ scaleY: 0}}
-      transition={{ duration: 0.5 }}>
+      initial={{ translateX:2000}}
+     animate={{ translateX:0}}
+     exit={{ translateX: 2000}}
+     transition={{ duration: 1.5 }}>
         <Layout>
         <ChakraProvider>
      <h1 className="  font-basker lg:text-5xl md:text-5xl sm:text-2xl xs:text-base text-center  text-slate-light absolute md:top-28  sm:top-16 left-1/2 -translate-x-1/2 xs:hidden md:block  sm:w-52  md:w-10/12 ">Tarifs - Prestations</h1>
