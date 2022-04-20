@@ -1,0 +1,242 @@
+/* MAIN */
+.mainDiv {
+	padding-top: 1.5rem;
+}
+/*  GRID */
+.gallery {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1.5rem;
+	justify-content: center;
+	/* min-height: 65%; */
+	width: 80%;
+	margin: auto;
+	margin-border: -8vh;
+	overflowx: hidden;
+	top: 35vh;
+}
+.gallery:after {
+	content: "";
+	display: block;
+	height: 8vh;
+}
+
+@media (max-width: 767px) {
+	.gallery {
+		grid-template-columns: 1fr;
+		justify-items: center;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 850px) {
+	.gallery {
+		grid-template-columns: repeat(2, 1fr);
+		justify-items: center;
+	}
+}
+.inputAll {
+	position: fixed;
+	/* background: blue; */
+}
+/* @media (max-width: 767px) {
+	.inputAll {
+		top: 10vh;
+		height: 20vh;
+	}
+} */
+
+/* IMAGE */
+.photo {
+	border-radius: 8px;
+}
+
+.photo:hover {
+	box-shadow: 0 3px 8px lightgray;
+}
+
+/* INPUT RANGE */
+.input[type="range"] {
+	position: relative;
+	left: 35%;
+	transform: translateX(-10%);
+	height: 30px;
+	-webkit-appearance: none;
+	margin-top: 20vh;
+	width: 20vw;
+	height: 3vh;
+	border-radius: 25px;
+	background: rgba(0, 0, 0, 0.6);
+}
+.input[type="range"]:focus {
+	outline: none;
+}
+.input[type="range"]::-webkit-slider-runnable-track {
+	width: 100%;
+	height: 3vh;
+	cursor: pointer;
+	animate: 0.2s;
+	box-shadow: 0 3px 8px lightgray;
+	background: rgba(0, 0, 0, 0.4);
+	border-radius: 8px;
+	border: 1px solid lightgray;
+}
+/* cursor range */
+.input[type="range"]::-webkit-slider-thumb {
+	box-shadow: 1px 2px 2px #c920a8;
+	/* border: 1px solid #fff; */
+	height: 4vh;
+	width: 21px;
+	border-radius: 8px;
+	background: rgba(0, 0, 0, 0.8);
+	background: #c920a8;
+	cursor: pointer;
+	-webkit-appearance: none;
+	margin-top: -5.5px;
+}
+/* .input[type="range"]:hover::-webkit-slider-thumb {
+	box-shadow: 2px 3px 10px lightgray;
+} */
+.input[type="range"]::-moz-range-track {
+	width: 100%;
+	height: 4vh;
+	cursor: pointer;
+	animate: 0.2s;
+	border-radius: 23px;
+	border: 1px solid #faffd1;
+}
+.input[type="range"]::-moz-range-thumb {
+	height: 4vh;
+	width: 21px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.input[type="range"]::-ms-track {
+	width: 100%;
+	height: 4vh;
+	cursor: pointer;
+	animate: 0.2s;
+	background: transparent;
+	border-color: transparent;
+	color: transparent;
+}
+.input[type="range"]::-ms-fill-lower {
+	border-radius: 46px;
+}
+.input[type="range"]::-ms-fill-upper {
+	border-radius: 46px;
+}
+.input[type="range"]::-ms-thumb {
+	margin-top: 1px;
+	/height: 22px;
+	width: 21px;
+	border-radius: 8px;
+
+	cursor: pointer;
+}
+.input[type="range"]:focus::-ms-fill-lower {
+}
+.input[type="range"]:focus::-ms-fill-upper {
+}
+
+/* INPUT RADIO */
+
+.input[type="radio"] {
+	appearance: none;
+	position: relative;
+	margin-left: 0.25rem;
+	top: 35vh;
+
+	/* margin: 0.5rem; */
+	background: rgba(0, 0, 0, 0.4);
+	font: inherit;
+	color: lightgray;
+	width: 1rem;
+	height: 1rem;
+	border: 1px solid lightgray;
+	border-radius: 50%;
+	/* transform: translateY(-0.075em); */
+	transition: 0.5s;
+}
+
+/* .input[type="radio"]::before {
+	content: "";
+	width: 0.5em;
+	height: 0.5em;
+	border-radius: 50%;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+} */
+.input[type="radio"]:checked {
+	background: #c920a8;
+	transform: scale(0.7);
+	border: none;
+	box-shadow: 2px 5px 15px #c920a8;
+}
+.input[type="radio"]:checked::before {
+	transform: scale(1);
+}
+
+.input[type="radio"]:hover {
+	box-shadow: 2px 5px 15px #c920a8;
+}
+/* Responsive input radio */
+@media (max-width: 767px) {
+	.input[type="radio"] {
+		left: 150%;
+		top: 6vh;
+	}
+	.input[type="radio"]:hover {
+		box-shadow: 0 0 0 transparent;
+	}
+}
+@media (min-width: 768px) and (max-width: 850px) {
+	.input[type="radio"] {
+		top: 10vh;
+		left: 250%;
+	}
+}
+
+/* Label */
+.label {
+	position: relative;
+	top: 35vh;
+	cursor: pointer;
+	/* left: 50%; */
+	margin-left: 0.5rem;
+}
+.label:after {
+	display: block;
+	content: "";
+	border-bottom: solid 2px #c920a8;
+	border-radius: 25px;
+	transform: scaleX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.label:hover:after {
+	transform: scaleX(0.75);
+}
+/* Responsive label */
+@media (max-width: 767px) {
+	.label {
+		top: 5.5vh;
+		left: 150%;
+	}
+}
+@media (min-width: 768px) and (max-width: 850px) {
+	.label {
+		top: 10vh;
+		left: 250%;
+	}
+}
+
+/* .galleryList {
+	width: 100%;
+	min-height: 65%;
+	position: relative;
+	right: 50%;
+	top: 75%;
+	transform: translateX(-50%);
+	margin-border: -8vh;
+} */

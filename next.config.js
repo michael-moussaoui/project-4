@@ -3,13 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
 }
  
-const cloudinaryBaseUrl = `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/`
+
 module.exports = { 
   images: {
-  domains: ['res.cloudinary.com'],
+  domains: ['images.ctfassets.net'],
   deviceSizes: [320, 420, 768, 1024, 1200],
-  loader: "cloudinary",
-  path:cloudinaryBaseUrl
+  
 },
   nextConfig,
   

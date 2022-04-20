@@ -1,3 +1,12 @@
+import React from 'react';
+import { useCallback, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useForm, ValidationError } from '@formspree/react';
+import Layout from '../components/Layout';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from '../components/footer.module.css'
+import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
 import {
   Box,
   Button,
@@ -11,38 +20,30 @@ import {
   Link,
   Stack,
   Textarea,
-  Tooltip,
-  useClipboard,
-  useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
-import React from 'react';
-import Layout from '../components/Layout';
 
-// import { MdEmail, MdOutlineEmail } from 'react-icons/md';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faFacebook,
     faTwitter,
     faInstagram,
     
   } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { motion } from 'framer-motion';
-import styles from '../components/footer.module.css'
-import Footer from '../components/Footer';
-
-
 
 
 export default function ContactFormWithSocialButtons() {
-  const { hasCopied, onCopy } = useClipboard('charlescantin@cantin.com');
+   
+  const [state, handleSubmit] = useForm("mjvlongq");
+  if (state.succeeded) {
+      return <p>Merci pour votre message</p>;
+  }
   return (
+    
     <motion.div
-     initial={{ scaleY:0}}
-     animate={{ scaleY:1}}
-     transition={{ duration: 0.5 }}
-     exit={{ scaleY: 0}}>
+     initial={{ opacity:0}}
+     animate={{ opacity:1}}
+     transition={{ duration: 1.1 }}
+     exit={{ opacity: 0}}>
     <Layout>
     <Flex
       
@@ -54,13 +55,12 @@ export default function ContactFormWithSocialButtons() {
       bgSize = 'cover'
       align="center"
       justify="center"
-      height='100vh'
+      height='130vh'
       css={{
-        // backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),
         backgroundAttachment: 'fixed',
       }}
       id="contact">
-   
+      <h1 className="  font-basker  lg:text-5xl md:text-5xl sm:text-2xl xs:text-base text-center text-gray-light absolute md:top-28  sm:top-16 left-1/2 -translate-x-1/2 xs:hidden md:block  sm:w-52  md:w-10/12 ">Contactez-moi</h1>
       <Box
         borderRadius="lg"
         m={{ base: 5, md: 16, lg: 10 }}
@@ -68,19 +68,9 @@ export default function ContactFormWithSocialButtons() {
         p={{ base: 5, lg: 16 }}>
         <Box width='90vw'>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
-            <Heading 
-              color=' lightgray;'
-              fontFamily={styles.title}
-              fontSize={{
-                base: '4xl',
-                md: '5xl',
-              }}>
-              contactez moi
-            </Heading>
+            
 
             <Stack
-          // width='90vw'
-            
               spacing={{ base: 4, md: 8, lg: 20 }}
               direction={{ base: 'column', md: 'row' }}>
               <Stack
@@ -89,149 +79,124 @@ export default function ContactFormWithSocialButtons() {
                 align="center"
                 justify="space-around"
                 direction={{ base: 'row', md: 'column' }}>
-                
-                  <FontAwesomeIcon
-                    aria-label="email"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    className={styles.icones} icon={faEnvelope}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                   
-                  />
-                
-
-                <Link href="#">
-                <FontAwesomeIcon
-                    aria-label="github"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    className={styles.icones} icon={faFacebook}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
-
-                <Link href="#">
-                  <FontAwesomeIcon
-                    aria-label="twitter"
-                    variant="ghost"
-                    size="lg"
-                    className={styles.icones} icon={faInstagram}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
-
-                <Link href="#">
-                  <FontAwesomeIcon
-                    aria-label="linkedin"
-                    variant="ghost"
-                    size="lg"
-                    className={styles.icones} icon={faTwitter}
-                    _hover={{
-                      bg: 'blue.500',
-                      color: useColorModeValue('white', 'gray.700'),
-                    }}
-                    isRound
-                  />
-                </Link>
+                               
               </Stack>
-
-              <Box
-                // bg={useColorModeValue('white', 'gray.700')}
-                // bgGradient="linear(to-l #999, #454545)"
+              <Box  
                 borderRadius="lg"
                 p={8}
-                color={useColorModeValue('lightgray', 'whiteAlpha.900')}
-                shadow="xl"
+                shadow="xl"             
+                width={{ base:'80vw', md:'60vw'}}
                 
-                width={{ base:'90vw', md:'40vw'}}
                 >
-                
+                <form onSubmit={handleSubmit} >
                 <VStack spacing={5}>
-                  <FormControl isRequired>
+                  <FormControl  isRequired paddingTop="10">
                     <FormLabel
-                    backgroundColor= "rgba(0,0,0,0.6)"
-                    width="24"
-                    borderRadius={'md'}
-                    paddingX= {'2.5'}>
-                    Nom</FormLabel>
-
-                    <InputGroup>
-                      <InputLeftElement  />
-                      <Input type="text" name="name" placeholder="Votre nom" />
-                    </InputGroup>
-                  </FormControl>
-
-                  <FormControl isRequired>
-                    <FormLabel
-                    backgroundColor= "rgba(0,0,0,0.6)"
-                    width="24"
-                    borderRadius={'md'}
-                    paddingX= {'2.5'}>
-                    Email</FormLabel>
-
-                    <InputGroup>
-                      <InputLeftElement  />
-                      <Input
-                        type="email"
-                        name="email"
-                        placeholder="Votre email"
-                      />
-                    </InputGroup>
-                  </FormControl>
-
-                  <FormControl isRequired>
-                    <FormLabel
-                    backgroundColor= "rgba(0,0,0,0.6)"
-                    width="24"
-                    borderRadius={'md'}
-                    paddingX= {'2.5'}>
-                    Message</FormLabel>
-
-                    <Textarea
-                      name="message"
-                      placeholder="Votre Message"
-                      rows={6}
-                      resize="none"
-                    />
-                  </FormControl>
-
-                  <Button
-                    // colorScheme="#454545"
-                    backgroundColor= "rgba(0,0,0,0.6)"
+                    backgroundColor= "rgba(0,0,0,0.7)"
                     width="24"
                     borderRadius={'md'}
                     paddingX= {'2.5'}
-                    
-                    // bg="darkgray"
+                    color="lightgray"
+                    float="right">
+                    Nom</FormLabel>
+
+                    <InputGroup>
+                      <Input id="name" type="text" name="name" placeholder="Votre nom" _placeholder={{color:'#e947c9'}} backgroundColor="rgba(0,0,0,0.7)" height="16" fontSize="xl" color="lightgray" _focus={{border:'1px solid #e947c9 '}} />
+                      <ValidationError prefix="Name" field="name" errors={state.errors} />
+                    </InputGroup>
+                  </FormControl>
+
+                  <FormControl  isRequired >
+                    <FormLabel
+                    backgroundColor= "rgba(0,0,0,0.7)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}
+                    color="lightgray"
+                    float="right">
+                    Email</FormLabel>
+
+                    <InputGroup>
+                      <Input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="Votre email"
+                        _placeholder={{color:'#e947c9'}}
+                        backgroundColor="rgba(0,0,0,0.7)"
+                        height="16"
+                        fontSize="xl"
+                        color="lightgray"
+                        _focus={{border:'1px solid #e947c9 '}}
+                        
+                      />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
+                    </InputGroup>
+                  </FormControl>
+
+                  <FormControl  isRequired>
+                    <FormLabel
+                    backgroundColor= "rgba(0,0,0,0.7)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}
+                    color="lightgray"
+                    float="right"
+                    >
+                    Message</FormLabel>
+                    <Textarea
+                      id='message'
+                      name="message"
+                      placeholder="Votre Message"
+                      _placeholder={{color:'#e947c9'}}
+                      rows={6}
+                      resize="none"
+                      backgroundColor="rgba(0,0,0,0.7)"
+                      color="lightgray"
+                      fontSize="xl"
+                      _focus={{border:'1px solid #e947c9 '}}
+                      
+                    />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
+                  </FormControl>
+
+                  <Button 
+                  type="submit" 
+                  disabled={state.submitting}
+                    backgroundColor= "rgba(0,0,0,0.7)"
+                    width="24"
+                    borderRadius={'md'}
+                    paddingX= {'2.5'}
                     color="white"
                     _hover={{
                       bg: 'transparent',
-                      border: 'solid 2px lightgray'
+                      border: 'solid 2px #e947c9',
+                      color:'#e947c9'
                     }}
                     isFullWidth>
                     Envoyer
                   </Button>
+                  <ValidationError errors={state.errors} />
+                   {/* <form onSubmit={handleSubmit}>
+      <label htmlFor="email">Email Address</label>
+      <input id="email" type="email" name="email" />
+      <ValidationError prefix="Email" field="email" errors={state.errors} />
+      <textarea id="message" name="message" />
+      <ValidationError prefix="Message" field="message" errors={state.errors} />
+      <button type="submit" disabled={state.submitting}>
+        Submit
+      </button>
+      <ValidationError errors={state.errors} />
+    </form>  */}
                 </VStack>
+                </form>
               </Box>
             </Stack>
           </VStack>
         </Box>
       </Box>
     </Flex>
-    <Footer></Footer>
+    <Footer m="5vh"/>
       </Layout>
       </motion.div>
   );

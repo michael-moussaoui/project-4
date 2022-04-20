@@ -1,0 +1,15 @@
+.galleryList {
+	width: 100%;
+	min-height: 65%;
+	position: relative;
+	right: 50%;
+	top: 75%;
+	transform: translateX(-50%);
+	margin-border: -8vh;
+}
+
+.galleryList:after {
+	content: "";
+	display: block;
+	height: 8vh;
+}

@@ -8,16 +8,15 @@ import { useEffect } from 'react'
 
 
 export default function Home() {
-  
-   
+    
 
   return (
     <AnimatePresence exitBeforeEnter>
     <motion.div 
-     initial={{ translateX:-2000}}
-     animate={{ translateX:0}}
-     exit={{ translateX: 2000}}
-     transition={{ duration: 1.5 }}>
+     initial={{ opacity:0}}
+     animate={{ opacity:1}}
+     exit={{ opacity: 0}}
+     transition={{ duration: 1.1 }}>
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -26,15 +25,15 @@ export default function Home() {
         
       </Head>
       
-      <Flex>
+      {/* <Flex> */}
       <Navbar/>
-      </Flex>
+      {/* </Flex> */}
       
       <motion.div
   
 />
       <main  className={styles.main} >
-      <div>
+      
         <h1 className= {styles.title} >
          Charles CANTIN
         </h1>
@@ -42,7 +41,7 @@ export default function Home() {
         <p className={styles.description}>
           Photographe
         </p>
-      </div>
+      
       </main>
  
     </div>

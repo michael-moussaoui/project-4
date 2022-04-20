@@ -3,44 +3,34 @@
 import Image from "next/image";
 import Layout from "../components/Layout";
 import Footer from "../components/Footer";
-import { chakra, Flex, Box, Grid, GridItem } from "@chakra-ui/react";
+import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import babies from "../db/baby"
-import baptisms from "../db/baptism"
-import couples from "../db/couple"
-import familys from "../db/family"
-import portraits from "../db/portrait"
-import pregnants from "../db/pregnant"
-import weddings from "../db/wedding"
 import { useEffect, useState } from "react";
+import * as contentful from "contentful"
+// import Gallery from "../components/Gallery";
+import GalleryList from "../components/GalleryList";
+import styles from '../components/galerie.module.css'
 
 
 
-let items = [
-  {title : "Portrait"},
-  {title : "Mariage"},
-  {title : "Grossesse"},
-  {title : "Bébé"},
-  {title : "Famille"},
-  {title : "Baptême"},
-  {title : "Couple"},
-]
+// console.log(contentful, 'contentful');
 
+var client = contentful.createClient({
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCES_TOKEN ,
+  
+});
 
-export default function galerie() {
-  // const [photos, setPhotos] = useState ( [] )
-
-  // useEffect(() => {
-  //   setPhotos(portraits)
-  // },[] )
-    
+export default function Galerie({ galeries}  ) {
+  console.log( galeries );
+  
     return (
       <motion.div
-      initial={{ scaleY:0 , opacity:1}}
-      animate={{ scaleY:1}} 
-      transition={{ duration: 0.5 }}
-      exit={{ scaleY: 0, opacity:0}}>
+      initial={{  opacity:0}}
+      animate={{ opacity:1}} 
+      transition={{ duration: 1.1 }}
+      exit={{ opacity:0}}>
     <Layout>
     <Flex 
 	    height="150vh" 
@@ -53,112 +43,44 @@ export default function galerie() {
       color= 'lightgray'
 	    overflowX="hidden">
 
-    <h1 className=" text-7xl font-basker  absolute top-28 left-1/2 text-lightgray -translate-x-1/2">Galerie</h1>
+    {/* <h1 className=" text-7xl font-basker  absolute top-28 left-1/2 text-lightgray -translate-x-1/2">Galerie</h1> */}
 
-    {/* <Grid 
-       display= 'grid'
-       gridTemplateColumns= '250px 1fr'
-
-    > */}
+    {/* <div className=" w-full h-4/6 relative top-48 mb-40" > */}
+    {/* <Gallery/> */}
+    {/* </div> */}
+    {/* <div className="h-20 relative right-1/2 -translate-x-1/2 top-[750px]">
+    <Link to='gridList' smooth={true}>
+     <FontAwesomeIcon className='text-5xl cursor-pointer' icon={faAngleDoubleDown}/> 
+    </Link>
+    </div> */}
+    {/* <div className={styles.galleryList}> */}
     
-      <nav className=" h-full w-48 fixed text-xl mt-40 text-center "
+      <GalleryList  />
       
-      >
-      { items.map((item) => (
-    <ul className=" w-full "
-       
-       >
-      <li className=" block pl-5 pt-4 cursor-pointer w-full hover:translate-x-5 hover:bg-black "
-      key={item}
-       >
-      
-      {item.title}
-
-      </li>
-    </ul>
-
-    ))
-    }
-    </nav>
-    
-    <div className="w-full mt-20 ">
-        {familys.map(({id, picture}) => (
-    <div key={id} className="w-1/2 relative left-1/2 -translate-x-1/2   "> 
-          <img className=" mt-32 rounded-md " src= {picture} alt = {id}></img>
-
-    </div>
-    
-    ))}
-    </div>
-    
-    {/* </Grid> */}
-
-	
-     
-               
-       
-          
-               
-               
-        
+    {/* </div>   */}
+   
     <Footer m="5vh"/>
 	
 	</Flex>
     </Layout>
     <AnimatePresence exitBeforeEnter/>
-    </motion.div>
-    
+    </motion.div>  
 	)
-        }
+   }
 
- {/* <Grid
-        w='full'
-    minHeight='150vh'
-    templateColumns={{lg:'repeat(3, 1fr)', md: 'repeat(2,1fr)', sm:'repeat(1, 1fr)'}}  
-    gap={50}
-    pt={300} 
-    
-    
-    bgRepeat = 'no-repeat'
-    bgPosition = 'center center'
-    bgAttachment = 'fixed'
-    bgSize = 'cover'
-    color= 'lightgray'
-    pb={125}              
-     >
-    { items.map((item) => (
-  <GridItem 
-      key={item}
-  mx="14"     
-  w="70%"
-  h="300"
-  bg= "rgba(0,0,0,0.6)"
-  boxShadow = " 0 3px 8px lightgray"
-  _hover={item.hover}
-  cursor= "pointer" >
-  <Image src =  '/camera_4.jpg' width="400%" height="330" alt=""/>
-  
-  <chakra.h3
-  
-                  py={140}
-                  textAlign="center"
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  color={ "white"}
-                  letterSpacing={1} >
-                  {/* {item.title} */}
-                  
-                {/* </chakra.h3>
+  export async function getServerSideProps() {
    
-                    <chakra.span
-                    fontWeight="bold"
-                    color='lightgray'>           
-                    
-                    </chakra.span>
-                    
-             
-  </GridItem>
-  ))
-    } 
-</Grid> */} 
-        
+    // Get data from headless cms
+    const gallery = await client.getEntries({
+      content_type : 'gallery',
+    })
+    
+    return {
+      props : {
+      galeries: gallery.includes
+      } 
+    }  
+  }
+  
+
+  

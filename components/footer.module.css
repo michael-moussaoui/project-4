@@ -1,25 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Baskervville&display=swap");
 
 .footer {
-  position: absolute;
-  /* position: fixed; */
-  bottom: 0;
-  height: 8vh;
-  width: 100vw;
-  background: lightgray;
+	position: absolute;
+	bottom: 0;
+	height: 8vh;
+	width: 100vw;
+	background: lightgray;
+	background: rgba(0, 0, 0, 0.6);
+	padding-top: 2vh;
+	color: lightgray;
 }
 
 .icones {
-  font-size: 2.5rem;
-  color: gray;
-  margin: 10px;
-  cursor: pointer;
+	font-size: 2.5rem;
+	color: gray;
+	margin: 10px;
+	cursor: pointer;
 }
 
 .icones:hover {
-  color: darkgray;
+	color: darkgray;
 }
 
-.title {
-  font-family: "Baskervville";
+.name {
+	font-family: "Baskervville";
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
 }
