@@ -21,10 +21,13 @@ function Prestation() {
         const cleanCards = rawData.map((cards) => {
           const { fields , sys} = cards
           const {id} = sys
-          const galleryTitle = fields.title
-          const url = fields.image.fields.file.url
-          const upDatedslide = { id, galleryTitle, url}
-          return upDatedslide
+          const title = fields.title
+          const url = fields.photo.fields.file.url
+          const details = fields.details.content[0].content[0].value
+          const price = fields.prix.content[0].content[0].value
+          const upDatedCards = { id, title, url, details, price}
+          console.log(id);
+          return upDatedCards
         })
         
         setGalleryCard(cleanCards)
@@ -32,7 +35,7 @@ function Prestation() {
       const getAllGallery = useCallback (async () => {
         setIsGalleryLoading(true)
         try {
-          const response = await client.getEntries({ content_type: 'gallerie', })
+          const response = await client.getEntries({ content_type: 'prestation', })
           const responseData = response.items
           console.log(responseData);
           cleanUpGalleryCards(responseData)
@@ -52,32 +55,21 @@ function Prestation() {
         getAllGallery()
       }, [getAllGallery]) 
 
-      console.log(galleryCard)
-  if (!Array.isArray(galleryCard) || !galleryCard.length) {
-    return null
-  }
+  //     console.log(galleryCard)
+  // if (!Array.isArray(galleryCard) || !galleryCard.length) {
+  //   return null
+  // }
       
   return (
     
-    <Grid 
-    w='full'
-    minHeight='150vh'
-    templateColumns={{lg:'repeat(3, 1fr)', md: 'repeat(2,1fr)', sm:'repeat(1, 1fr)'}}  
-    gap={55}
-    pt={300} 
-    bgImage= 'url(./camera_6.jpg)'
-    bgRepeat = 'no-repeat'
-    bgPosition = 'center center'
-    bgAttachment = 'fixed'
-    bgSize = 'cover'
-    pb={125}        
-     >
+    <>
     { galleryCard.map((item) => {
-        const { id, galleryTitle, url} = item
+        const { id, title, url, price, details} = item
         return(
   
    <Box
-  key={item} 
+  key={id} 
+  position="relative"
   p="5"
   maxW="380px" 
   borderWidth="1px" 
@@ -88,11 +80,11 @@ function Prestation() {
   boxShadow = " 0 3px 8px lightgray" 
   color= 'white'
   cursor= "pointer"
-  _hover={item.url}>
-  <Cards  galleryTitle={galleryTitle} url={url} />
+  _hover={{backgroundImage: "https:"+ url, bgAttachment:"center",bgPosition:"center", bgSize: "cover"}}>
+  {/* <Cards  title={title} url={url} /> */}
         
         <Flex align="baseline" mt={2}>
-          {/* <Badge colorScheme="pink">Plus</Badge> */}
+          
           <Text
             ml={2}
             textTransform="uppercase"
@@ -100,17 +92,19 @@ function Prestation() {
             fontWeight="bold"
             color="pink.800"
           >
-            {item.title}
+            {title}
           </Text>
         </Flex>
         <Text mt={2} fontSize={{ xl:"xl", l:"l", md:"md"}} fontWeight="semibold" lineHeight="short">
-          {item.text}
+          {details}
         </Text>
-        <Text mt={2}>{item.price}</Text>     
+        <Text mt={2}>{price}</Text> 
+        {/* <Badge colorScheme="pink" position= 'absolute' bottom={2} right={2}
+        >{price}</Badge>         */}
       </Box>  
         )      
   })} 
-    </Grid>
+  </>
   )
 }
 

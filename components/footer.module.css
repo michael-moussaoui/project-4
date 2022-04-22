@@ -9,6 +9,7 @@
 	background: rgba(0, 0, 0, 0.6);
 	padding-top: 2vh;
 	color: lightgray;
+	border-top: 1px solid #c920a8;
 }
 
 .icones {
@@ -24,7 +25,15 @@
 
 .name {
 	font-family: "Baskervville";
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
+	/* position: relative; */
+	/* left: 50%; */
+	/* transform: translateX(-50%); */
+	margin-left: 45%;
+}
+
+@media (max-width: 768px) {
+	.name {
+		position: relative;
+		left: -20%;
+	}
 }

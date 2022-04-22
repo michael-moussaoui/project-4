@@ -58,15 +58,7 @@ const GalleryList = () => {
        <div id='gridList' className={styles.mainDiv}>
        <div className={styles.inputAll}>
        <ul className=' md:text-xl sm:text-l '>
-        {/* <input className= {styles.input}
-        type='range' 
-        min='1' 
-        max='20'
-        name='range'
-        id='range'
-        defaultValue={rangeValue}
-        onChange={(e) => setRangeValue(e.target.value)}
-        /> */}
+        
             
         {categories.map((category, index) => (
             <li key={index} className='    sm:left-1/2   sm:text-l md:text-xl '>
@@ -81,13 +73,12 @@ const GalleryList = () => {
         
       {galleryLists
       .filter((category) => category.galleryTitle.includes(selectedCategory))
-      .slice(0,rangeValue)
       .map((item) => {
           const { id, galleryTitle, url} = item
           return (
                    
             <GridItem w='100%'  key={id}>
-            <Photo  galleryTitle={galleryTitle} url={url} />        
+            <Photo  galleryTitle={galleryTitle} url={url}  />        
             </GridItem>
           )
         })}

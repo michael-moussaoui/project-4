@@ -60,7 +60,7 @@ export default function ContactFormWithSocialButtons() {
         backgroundAttachment: 'fixed',
       }}
       id="contact">
-      <h1 className="  font-basker  lg:text-5xl md:text-5xl sm:text-2xl xs:text-base text-center text-gray-light absolute md:top-28  sm:top-16 left-1/2 -translate-x-1/2 xs:hidden md:block  sm:w-52  md:w-10/12 ">Contactez-moi</h1>
+      <h1 className="  font-basker  lg:text-5xl md:text-5xl sm:text-2xl xs:text-base text-center text-white absolute md:top-28  sm:top-16 left-1/2 -translate-x-1/2 xs:hidden md:block  sm:w-52  md:w-10/12 ">Contactez-moi</h1>
       <Box
         borderRadius="lg"
         m={{ base: 5, md: 16, lg: 10 }}

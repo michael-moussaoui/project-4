@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { motion } from 'framer-motion'
 import { AnimatePresence, useTransform, useMotionValue } from 'framer-motion'
 import { useEffect } from 'react'
+import Footer from '../components/Footer'
 
 
 export default function Home() {
@@ -45,6 +46,7 @@ export default function Home() {
       </main>
  
     </div>
+    <Footer />
     </motion.div>
     </AnimatePresence>
   )

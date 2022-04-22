@@ -40,7 +40,7 @@ export default function Galerie({ galeries}  ) {
       bgPosition = 'center center'
       bgAttachment = 'fixed'
       bgSize = 'cover'
-      color= 'lightgray'
+      color= '#fff'
 	    overflowX="hidden">
 
     {/* <h1 className=" text-7xl font-basker  absolute top-28 left-1/2 text-lightgray -translate-x-1/2">Galerie</h1> */}

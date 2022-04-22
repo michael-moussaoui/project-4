@@ -4,7 +4,7 @@
 .container {
 	/* padding: 0 2rem; */
 	/* position: relative; */
-	height: 100vh;
+	height: 120vh;
 	width: 100vw;
 	background-image: url(/camera.jpg);
 	background-repeat: no-repeat;
@@ -79,6 +79,7 @@
 	}
 	.title {
 		font-size: 2rem;
+		margin-top: 3rem;
 	}
 }
 

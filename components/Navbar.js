@@ -22,22 +22,39 @@ export default function Navbar({ children, page }) {
     const router = useRouter()
 
     let [open, setOpen] = useState (false)
+    const [navBg, setNavBg] = useState(false)
+
+    const changeNavBg = () => {
+        console.log(window.scrollY);
+       
+        if(window.scrollY >= 250) {
+            setNavBg(true)
+        } else {
+            setNavBg(false)
+        }
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', changeNavBg)
+         return () => {
+             window.removeEventListener('scroll', changeNavBg)
+         }
+    }, [])
 
     return (
         <>
-        <div className={styles.navbar}>{children}
-            <nav className="navbar flex   md:float-right sm:float-left text-slate-light font-basker  h-16 sm:w-2/5  md:w-auto " >
+             <div className={navBg ?  styles.navbar_ : styles.navbar} >{children}
+            <nav className={` flex   md:float-right sm:float-left text-white font-basker  h-16 sm:w-2/5  md:w-auto `} >
             <Link href = {"/"} passHref>
-                <div className="navbar_logo absolute left-5 mt-2  text-lightgray cursor-pointer ">
-                <Image src="./charles cantin.png" className=" lg:w-36 lg:h-36 md:w-20 md:h-20 sm:w-16 sm:h-16" alt=""/> 
+                <div className="navbar_logo absolute left-5 mt-2 cursor-pointer ">
+                <Image src="./charles cantin.png" className=" lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-14 sm:h-14" alt=""/> 
                 </div>
                 </Link>
                 {/*Mobile menu */}
                 <div onClick={()=>setOpen(!open)}
-                 className="absolute float right-6 top-5 w-10 h-10  md:hidden text-2xl text-white cursor-pointer z-20 ">
+                 className="absolute float right-6 top-5 w-10 h-10  md:hidden text-2xl text-white cursor-pointer z-50  ">
                 <FontAwesomeIcon icon={open ? faXmark : faBars} /> 
                 </div> 
-                <ul className={`navbar_links flex md:flex-row mr-10 sm:flex-col sm:absolute md:left-1/2 sm:-translate-x-1/2 sm:content-center   md:mt-10  md:inline-flex md:-translate-y-10 w-3/4 mx-auto transition-all duration-1000 ease-in ${open ? 'sm:bg-pink sm:w-full sm:left-1/2 sm:mb-0':' md:bg-transparent  sm:left-[-35rem] sm:mb-40'}`}>
+                <ul className={`navbar_links flex md:flex-row mr-10 sm:flex-col sm:absolute md:left-1/2 sm:-translate-x-1/2 sm:content-center   md:mt-10  md:inline-flex md:-translate-y-10 w-3/4 mx-auto transition-all duration-1000 ease-in ${open ? 'sm:bg-pink sm:w-full sm:z-20 sm:left-1/2 sm:mb-0':' md:bg-transparent  sm:left-[-35rem] sm:mb-40'}`}>
                 { links.map((link) => (
                     
                     <li
@@ -47,7 +64,7 @@ export default function Navbar({ children, page }) {
                             <a className={`cursor-pointer ${
                 router.pathname === link.path
                   ? ' text-pink bg-black bg-opacity-50 p-1 rounded-lg'
-                  : ' hover:scale-50 hover: text-gray-light'
+                  : ' hover:scale-50 hover: text-white'
               }`}>{link.name}</a>
                         </Link>
                     </li>

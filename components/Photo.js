@@ -16,6 +16,7 @@ const { id, galleryTitle, url} = props
              src = {"https:"+ url}
              alt=''
              className={styles.photo}
+             _hover={{transform: 'scale(2)', position:'relative', transition: 'ease 0.7s'}}
              
              
              

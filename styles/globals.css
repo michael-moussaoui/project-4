@@ -12,9 +12,24 @@ body {
 		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
 		sans-serif;
 }
+body::-webkit-scrollbar {
+	width: 20px; /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+	/* background: #c920a8; color of the scroll area */
+	border-radius: 20px;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: #c920a8; /* color of the tracking thumb */
+	height: 60px;
+
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 2px solid #fff; /* creates padding around scroll thumb */
+	opacity: 0.1;
+}
 
 a {
-	color: inherit;
+	/* color: inherit; */
 	text-decoration: none;
 }
 

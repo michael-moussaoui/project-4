@@ -7,20 +7,18 @@ import { Img, Box } from '@chakra-ui/react'
 
 
 const Cards = (props) => {
-    const { id, galleryTitle, url} = props
+    const { id, title, url} = props
   return (
     <Box>
              <Img
              key={id}
              width='100%' 
-             height='100%'
+            //  height='300'
              src = {"https:"+ url}
              alt=''
              />
-             <div className='textWrap max-w-4xl text-center'>
-           {/* <h2 className=' text-7xl font-basker '>{galleryTitle}</h2> */}
-            </div>
-          {/* </div>   */}
+             <div className='textWrap max-w-4xl text-center'></div>
+          
     </Box>
   )
 }
