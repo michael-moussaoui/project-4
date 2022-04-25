@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../styles/Home.module.css'
-import { chakra } from '@chakra-ui/react'
 import { Img, Box } from '@chakra-ui/react'
 
 

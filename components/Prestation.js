@@ -55,10 +55,6 @@ function Prestation() {
         getAllGallery()
       }, [getAllGallery]) 
 
-  //     console.log(galleryCard)
-  // if (!Array.isArray(galleryCard) || !galleryCard.length) {
-  //   return null
-  // }
       
   return (
     
@@ -80,7 +76,7 @@ function Prestation() {
   boxShadow = " 0 3px 8px lightgray" 
   color= 'white'
   cursor= "pointer"
-  _hover={{backgroundImage: "https:"+ url, bgAttachment:"center",bgPosition:"center", bgSize: "cover"}}>
+  _hover={{backgroundImage: "https:"+ url, bgAttachment:"center",bgPosition:"center", bgSize: "cover", color:"transparent"}}>
   {/* <Cards  title={title} url={url} /> */}
         
         <Flex align="baseline" mt={2}>
@@ -98,9 +94,8 @@ function Prestation() {
         <Text mt={2} fontSize={{ xl:"xl", l:"l", md:"md"}} fontWeight="semibold" lineHeight="short">
           {details}
         </Text>
-        <Text mt={2}>{price}</Text> 
-        {/* <Badge colorScheme="pink" position= 'absolute' bottom={2} right={2}
-        >{price}</Badge>         */}
+        <Badge colorScheme="pink" position= 'absolute' bottom={2} right={2}
+        >{price}</Badge>        
       </Box>  
         )      
   })} 

@@ -24,17 +24,17 @@ var client = contentful.createClient({
   
 });
 
-const items = [
+// const items = [
   
-  { title:"Juste moi", price : "130€ ",  hover :{bgImage:"url(./male-2322802_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"} ,text:"Séance pour une personne, en extérieur ou en studio"},
-  { title:"Pour deux", price : "195€",  hover :{bgImage:"url(./black-and-white-2590810_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:"Pour deux personnes, en extérieur ou en studio"},
-  { title:"Famille", price : "220€",  hover :{bgImage:"url(./family-6475821_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:`Pour la famille ou les amis jusqu’à 4 personnes, en extérieur ou en studio
-  30 euros en supplément par personne au-delà de 4 (hormis enfant jusqu’à 2 ans)`},
-  { title:"Il était une fois", price : "160€ ", hover :{bgImage:"url(./pregnancy-1742141_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"},text:`Photo de grossesse (À votre domicile, en extérieur ou en studio)`},
-  { title:"Mon bébé", price : "100€ ", hover :{bgImage:"url(./bebe-1237704_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:`Photo d’enfant jusqu’à 3 ans (photo à domicile)  `},
-  { title:"J'immortalise l'évènement", price : "Sur devis", hover :{bgImage:"url(./couple-1850073_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:"Prestation de mariage ou baptême sur devis"}
+//   { title:"Juste moi", price : "130€ ",  hover :{bgImage:"url(./male-2322802_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"} ,text:"Séance pour une personne, en extérieur ou en studio"},
+//   { title:"Pour deux", price : "195€",  hover :{bgImage:"url(./black-and-white-2590810_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:"Pour deux personnes, en extérieur ou en studio"},
+//   { title:"Famille", price : "220€",  hover :{bgImage:"url(./family-6475821_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:`Pour la famille ou les amis jusqu’à 4 personnes, en extérieur ou en studio
+//   30 euros en supplément par personne au-delà de 4 (hormis enfant jusqu’à 2 ans)`},
+//   { title:"Il était une fois", price : "160€ ", hover :{bgImage:"url(./pregnancy-1742141_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"},text:`Photo de grossesse (À votre domicile, en extérieur ou en studio)`},
+//   { title:"Mon bébé", price : "100€ ", hover :{bgImage:"url(./bebe-1237704_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:`Photo d’enfant jusqu’à 3 ans (photo à domicile)  `},
+//   { title:"J'immortalise l'évènement", price : "Sur devis", hover :{bgImage:"url(./couple-1850073_640.jpg)",color:"transparent", bgAttachment:"center",bgPosition:"center", bgSize: "cover"}, text:"Prestation de mariage ou baptême sur devis"}
 
-]
+// ]
 
 export default function tarifs(){
     return(
@@ -62,43 +62,7 @@ export default function tarifs(){
     pb={125}        
      >
      <Prestation />
-    {/* { items.map((item) => (
-  
-   <Box
-  key={item} 
-  position = 'relative'
-  p="5"
-  maxW="380px" 
-  borderWidth="1px" 
-  mx="14" 
-  w="70%"
-  h="300"
-  bg= "rgba(0,0,0,0.6)"
-  boxShadow = " 0 3px 8px lightgray" 
-  color= '#fff'
-  cursor= "pointer"
-  _hover={item.hover}>
-        
-        <Flex align="baseline" mt={2}>
-          
-          <Text
-            ml={2}
-            textTransform="uppercase"
-            fontSize="sm"
-            fontWeight="bold"
-            color="#e947c9"
-          >
-            {item.title}
-          </Text>
-        </Flex>
-        <Text mt={2} fontSize={{ xl:"xl", l:"l", md:"md"}} fontWeight="semibold" lineHeight="short">
-          {item.text}
-        </Text>
-        <Badge colorScheme="pink" position= 'absolute' bottom={2} right={2}
-        >{item.price}</Badge>    
-      </Box>        
-  ))
-    }  */}
+    
     </Grid>
      <Footer />
            </ChakraProvider>           
@@ -109,6 +73,7 @@ export default function tarifs(){
     
     export async function getServerSideProps() {
 
+      // Get data from headless cms
       const prestation = await client.getEntries({
         content_type: 'prestation',
       })

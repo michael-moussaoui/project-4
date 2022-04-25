@@ -1,11 +1,8 @@
 import React from 'react'
-import { Img, Box, Hide } from '@chakra-ui/react'
+import { Img, Box } from '@chakra-ui/react'
 import styles from './photos.module.css'
-import { motion } from 'framer-motion'
-
 
 function Photo(props) {
-// console.log(props);
 const { id, galleryTitle, url} = props
   return (
     <Box >
@@ -16,7 +13,7 @@ const { id, galleryTitle, url} = props
              src = {"https:"+ url}
              alt=''
              className={styles.photo}
-             _hover={{transform: 'scale(2)', position:'relative', transition: 'ease 0.7s'}}
+             _hover={{transform: 'scale(1.2porn)', position:'relative', transition: 'ease 0.7s'}}
              
              
              
