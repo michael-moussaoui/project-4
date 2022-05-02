@@ -42,9 +42,15 @@
 
 @media (max-width: 760px) {
 	.navbar_item {
-		width: 70%;
-		margin: 0.5rem auto;
+		position: relative;
+		transform: translateX(-20%);
+		width: 100%;
+		margin: 1.25rem auto;
 		font-size: 1.5rem;
+		left: 50%;
+	}
+	.navbar_item:first-child {
+		margin-top: 20vh;
 	}
 }
 @media (min-width: 767px) {

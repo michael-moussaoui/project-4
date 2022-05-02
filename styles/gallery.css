@@ -55,12 +55,6 @@
 			letter-spacing: 4px;
 		}
 	}
-
-	// > * {
-	//     opacity: 0;
-	//     transform: translateY(-45px);
-	//     transition: all 1s;
-	// }
 }
 .swiper {
 	width: 100%;

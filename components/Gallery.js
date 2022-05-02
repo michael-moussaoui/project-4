@@ -43,7 +43,6 @@ const Gallery = () => {
     getAllGallery()
   }, [getAllGallery]) 
   
-  // console.log(gallerySlides)
   if (!Array.isArray(galleryCards) || !galleryCards.length) {
     return null
   }

@@ -8,7 +8,6 @@ import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import * as contentful from "contentful"
-// import Gallery from "../components/Gallery";
 import GalleryList from "../components/GalleryList";
 import styles from '../components/galerie.module.css'
 

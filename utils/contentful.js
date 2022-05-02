@@ -14,29 +14,28 @@
 
 // export default { fetchEntries }
 
-import gql from "graphql-tag";
-import apolloClient from "./apollo-client";
+// import apolloClient from "./apollo-client";
 
-export async function getAllGallery() {
-    const { data } = await apolloClient.query({
+// export async function getAllGallery() {
+//     const { data } = await apolloClient.query({
 
-     queryGetAllGallery : ` {
-        galleryCollection{
-          items{
-            title
-            slug
-            groupeCollection{
-              items{
-                url
-              }
-            }
-          }
-        }
-      }
-      `
-    })
+//      queryGetAllGallery : ` {
+//         galleryCollection{
+//           items{
+//             title
+//             slug
+//             groupeCollection{
+//               items{
+//                 url
+//               }
+//             }
+//           }
+//         }
+//       }
+//       `
+//     })
     
-    return data.postCollection.items.groupeCollection.items
-}
+//     return data.postCollection.items.groupeCollection.items
+// }
 
-export default  getAllGallery 
+// export default  getAllGallery 

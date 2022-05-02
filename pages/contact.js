@@ -1,10 +1,8 @@
-import React from 'react';
-import { useCallback, useEffect } from 'react'
+
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useForm, ValidationError } from '@formspree/react';
 import Layout from '../components/Layout';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styles from '../components/footer.module.css'
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import {
@@ -13,30 +11,33 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  Heading,
   Input,
   InputGroup,
-  InputLeftElement,
-  Link,
+  Modal,
   Stack,
   Textarea,
   VStack,
 } from '@chakra-ui/react';
 
-import {
-    faFacebook,
-    faTwitter,
-    faInstagram,
-    
-  } from "@fortawesome/free-brands-svg-icons"
-
-
-export default function ContactFormWithSocialButtons() {
+export default function ContactForm() {
    
   const [state, handleSubmit] = useForm("mjvlongq");
-  if (state.succeeded) {
-      return <p>Merci pour votre message</p>;
+  const [show, setShow] = useState( false )
+  const router = useRouter()
+
+  const handleShow = () => setShow( true )
+
+  useEffect(() =>{
+    if (state.succeeded) {
+  
+      setTimeout(() => {
+        router.push('/')
+      }, 2000)
   }
+  }, )
+
+  
+  
   return (
     
     <motion.div
@@ -47,7 +48,7 @@ export default function ContactFormWithSocialButtons() {
     <Layout>
     <Flex
       
-      bgGradient="linear(to-r,#454545, #999)"
+      // bgGradient="linear(to-r,#454545, #999)"
       bgImage="url(./camera_5.jpg)"
       bgRepeat = 'no-repeat'
       bgPosition = 'center center'
@@ -69,7 +70,6 @@ export default function ContactFormWithSocialButtons() {
         <Box width='90vw'>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             
-
             <Stack
               spacing={{ base: 4, md: 8, lg: 20 }}
               direction={{ base: 'column', md: 'row' }}>
@@ -85,8 +85,7 @@ export default function ContactFormWithSocialButtons() {
                 borderRadius="lg"
                 p={8}
                 shadow="xl"             
-                width={{ base:'80vw', md:'60vw'}}
-                
+                width={{ base:'80vw', md:'60vw'}}         
                 >
                 <form onSubmit={handleSubmit} >
                 <VStack spacing={5}>
@@ -97,6 +96,7 @@ export default function ContactFormWithSocialButtons() {
                     borderRadius={'md'}
                     paddingX= {'2.5'}
                     color="lightgray"
+                    _focus={{background:"rgba(0,0,0,0.7)",}}
                     float="right">
                     Nom</FormLabel>
 
@@ -127,7 +127,9 @@ export default function ContactFormWithSocialButtons() {
                         height="16"
                         fontSize="xl"
                         color="lightgray"
+                
                         _focus={{border:'1px solid #e947c9 '}}
+                        
                         
                       />
                       <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -160,7 +162,7 @@ export default function ContactFormWithSocialButtons() {
                     <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </FormControl>
 
-                  <Button 
+                  <Button onClick={ handleShow}
                   type="submit" 
                   disabled={state.submitting}
                     backgroundColor= "rgba(0,0,0,0.7)"
@@ -177,19 +179,11 @@ export default function ContactFormWithSocialButtons() {
                     Envoyer
                   </Button>
                   <ValidationError errors={state.errors} />
-                   {/* <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email Address</label>
-      <input id="email" type="email" name="email" />
-      <ValidationError prefix="Email" field="email" errors={state.errors} />
-      <textarea id="message" name="message" />
-      <ValidationError prefix="Message" field="message" errors={state.errors} />
-      <button type="submit" disabled={state.submitting}>
-        Submit
-      </button>
-      <ValidationError errors={state.errors} />
-    </form>  */}
                 </VStack>
                 </form>
+                <Modal show = {show} >
+                  <Modal.Body>Merci pour votre message</Modal.Body>
+                </Modal>
               </Box>
             </Stack>
           </VStack>
