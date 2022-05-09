@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { useForm, ValidationError } from '@formspree/react';
-import Layout from '../components/Layout';
-import Footer from '../components/Footer';
-import { motion } from 'framer-motion';
+import { useForm, ValidationError } from '@formspree/react'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import { motion } from 'framer-motion'
+import Cursor from '../components/Cursor'
 import {
   Box,
   Button,
@@ -13,16 +13,14 @@ import {
   FormLabel,
   Input,
   InputGroup,
-  Modal,
   Stack,
   Textarea,
   VStack,
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
 
-export default function ContactForm() {
+export default function Contact() {
    
-  const [state, handleSubmit] = useForm("mjvlongq");
-  const [show, setShow] = useState( false )
+  const [state, handleSubmit] = useForm("mjvlongq")
   const router = useRouter()
 
   const handleShow = () => setShow( true )
@@ -36,8 +34,6 @@ export default function ContactForm() {
   }
   }, )
 
-  
-  
   return (
     
     <motion.div
@@ -45,10 +41,10 @@ export default function ContactForm() {
      animate={{ opacity:1}}
      transition={{ duration: 1.1 }}
      exit={{ opacity: 0}}>
-    <Layout>
+    <Navbar />
+    <Cursor />
     <Flex
       
-      // bgGradient="linear(to-r,#454545, #999)"
       bgImage="url(./camera_5.jpg)"
       bgRepeat = 'no-repeat'
       bgPosition = 'center center'
@@ -57,6 +53,7 @@ export default function ContactForm() {
       align="center"
       justify="center"
       height='130vh'
+      cursor='none'
       css={{
         backgroundAttachment: 'fixed',
       }}
@@ -74,8 +71,7 @@ export default function ContactForm() {
               spacing={{ base: 4, md: 8, lg: 20 }}
               direction={{ base: 'column', md: 'row' }}>
               <Stack
-              width={{ base:'90vw', md:'1vw'}}
-              
+                width={{ base:'90vw', md:'1vw'}}
                 align="center"
                 justify="space-around"
                 direction={{ base: 'row', md: 'column' }}>
@@ -128,9 +124,7 @@ export default function ContactForm() {
                         fontSize="xl"
                         color="lightgray"
                 
-                        _focus={{border:'1px solid #e947c9 '}}
-                        
-                        
+                        _focus={{border:'1px solid #e947c9 '}} 
                       />
                       <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </InputGroup>
@@ -156,8 +150,7 @@ export default function ContactForm() {
                       backgroundColor="rgba(0,0,0,0.7)"
                       color="lightgray"
                       fontSize="xl"
-                      _focus={{border:'1px solid #e947c9 '}}
-                      
+                      _focus={{border:'1px solid #e947c9 '}} 
                     />
                     <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </FormControl>
@@ -181,9 +174,6 @@ export default function ContactForm() {
                   <ValidationError errors={state.errors} />
                 </VStack>
                 </form>
-                <Modal show = {show} >
-                  <Modal.Body>Merci pour votre message</Modal.Body>
-                </Modal>
               </Box>
             </Stack>
           </VStack>
@@ -191,7 +181,6 @@ export default function ContactForm() {
       </Box>
     </Flex>
     <Footer m="5vh"/>
-      </Layout>
       </motion.div>
   );
 }

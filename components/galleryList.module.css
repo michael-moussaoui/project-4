@@ -30,25 +30,24 @@
 @media (max-width: 767px) {
 	.gallery {
 		grid-template-columns: 1fr;
-		justify-items: center;
 	}
 }
 
 @media (min-width: 768px) and (max-width: 850px) {
 	.gallery {
 		grid-template-columns: repeat(2, 1fr);
-		justify-items: center;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+	.gallery {
+		grid-template-columns: repeat(3, 1fr);
+		left: 30px;
 	}
 }
 .inputAll {
 	position: fixed;
 }
-/* @media (max-width: 767px) {
-	.inputAll {
-		top: 10vh;
-		height: 20vh;
-	}
-} */
 
 /* IMAGE */
 .photo {
@@ -79,14 +78,6 @@
 	transition: 0.5s;
 }
 
-/* .input[type="radio"]::before {
-	content: "";
-	width: 0.5em;
-	height: 0.5em;
-	border-radius: 50%;
-	transform: scale(0);
-	transition: 120ms transform ease-in-out;
-} */
 .input[type="radio"]:checked {
 	background: #c920a8;
 	transform: scale(0.7);
@@ -149,5 +140,9 @@
 	.label {
 		top: 10vh;
 		left: 250%;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1280px) {
+	.label {
 	}
 }

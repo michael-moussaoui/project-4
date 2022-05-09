@@ -12,8 +12,9 @@ const { id, galleryTitle, url} = props
              height={200}
              src = {"https:"+ url}
              alt=''
+             transition= 'ease 0.7s'
              className={styles.photo}
-             _hover={{transform: 'scale(1.2porn)', position:'relative', transition: 'ease 0.7s'}}
+             _hover={{transform: 'scale(1.1)', boxShadow:'0 3px 8px violet' }}
              
              
              

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { client } from '../utils/client'
+import { motion } from 'framer-motion';
 import Cards from './Cards'
 import { Container,
     chakra,
@@ -61,9 +62,10 @@ function Prestation() {
     <>
     { galleryCard.map((item) => {
         const { id, title, url, price, details} = item
-        return(
-  
+        return (
+   
    <Box
+   
   key={id} 
   position="relative"
   p="5"
@@ -75,12 +77,17 @@ function Prestation() {
   bg= "rgba(0,0,0,0.6)"
   boxShadow = " 0 3px 8px lightgray" 
   color= 'white'
-  cursor= "pointer"
-  _hover={{backgroundImage: "https:"+ url, bgAttachment:"center",bgPosition:"center", bgSize: "cover", color:"transparent"}}>
+  transition="ease 0.7s"
+  _hover={{backgroundImage: "https:"+ url, 
+    bgAttachment:"center",
+    bgPosition:"center", 
+    bgSize: "cover",
+    color:"transparent", 
+    transform:"scale(1.1)",
+    boxShadow:" 0 3px 8px violet"}}>
   {/* <Cards  title={title} url={url} /> */}
         
         <Flex align="baseline" mt={2}>
-          
           <Text
             ml={2}
             textTransform="uppercase"
@@ -94,9 +101,10 @@ function Prestation() {
         <Text mt={2} fontSize={{ xl:"xl", l:"l", md:"md"}} fontWeight="semibold" lineHeight="short">
           {details}
         </Text>
-        <Badge colorScheme="pink" position= 'absolute' bottom={2} right={2}
-        >{price}</Badge>        
-      </Box>  
+        <Badge colorScheme="pink" position= 'absolute' bottom={2} right={2}>
+        {price}
+        </Badge>        
+      </Box> 
         )      
   })} 
   </>

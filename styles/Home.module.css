@@ -2,8 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Baskervville&display=swap");
 
 .container {
-	/* padding: 0 2rem; */
-	/* position: relative; */
 	height: 120vh;
 	width: 100vw;
 	background-image: url(/camera.jpg);
@@ -12,6 +10,7 @@
 	background-attachment: fixed;
 	background-size: cover;
 	color: lightgray;
+	cursor: none;
 }
 
 .main {
@@ -57,6 +56,10 @@
 	margin: 0;
 	line-height: 1.15;
 	font-size: 4rem;
+}
+
+.title:hover {
+	color: #c920a8;
 }
 
 .title,

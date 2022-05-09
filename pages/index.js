@@ -1,15 +1,13 @@
-import Head from 'next/head'
-import { Flex } from '@chakra-ui/react'
 import Navbar from '../components/Navbar'
 import styles from '../styles/Home.module.css'
 import { motion } from 'framer-motion'
 import { AnimatePresence, useTransform, useMotionValue } from 'framer-motion'
 import { useEffect } from 'react'
 import Footer from '../components/Footer'
-
+import Cursor from '../components/Cursor'
 
 export default function Home() {
-    
+
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -19,20 +17,19 @@ export default function Home() {
      exit={{ opacity: 0}}
      transition={{ duration: 1.1 }}>
     <div className={styles.container}>
-      <Head>
+    <Cursor />
+   
+      {/* <Head>
         <title>Create Next App</title>
         
         <link rel="icon" href="/favicon.ico"/>
         
-      </Head>
-      
-      {/* <Flex> */}
+      </Head> */}
       <Navbar/>
-      {/* </Flex> */}
       
-      <motion.div
-  
-/>
+      
+      <motion.div/>
+
       <main  className={styles.main} >
       
         <h1 className= {styles.title} >
@@ -47,6 +44,7 @@ export default function Home() {
  
     </div>
     <Footer />
+    
     </motion.div>
     </AnimatePresence>
   )

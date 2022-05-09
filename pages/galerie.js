@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import Image from "next/image";
-import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
 import { motion } from "framer-motion";
@@ -22,15 +22,15 @@ var client = contentful.createClient({
 });
 
 export default function Galerie({ galeries}  ) {
-  console.log( galeries );
   
+  console.log( galeries );
     return (
       <motion.div
       initial={{  opacity:0}}
       animate={{ opacity:1}} 
       transition={{ duration: 1.1 }}
       exit={{ opacity:0}}>
-    <Layout>
+    <Navbar />
     <Flex 
 	    height="150vh" 
       width="100vw" 
@@ -61,7 +61,7 @@ export default function Galerie({ galeries}  ) {
     <Footer m="5vh"/>
 	
 	</Flex>
-    </Layout>
+    {/* </Layout> */}
     <AnimatePresence exitBeforeEnter/>
     </motion.div>  
 	)

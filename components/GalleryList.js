@@ -5,7 +5,7 @@ import { client } from '../utils/client'
 import React from 'react'
 import Photo from './Photo';
 import { Grid, GridItem } from '@chakra-ui/react'
-import { AnimateSharedLayout, motion, AnimatePresence } from 'framer-motion';
+
 
 
 
@@ -55,20 +55,19 @@ const GalleryList = () => {
    
     return (
       
-       <div id='gridList' className={styles.mainDiv}>
-       <div className={styles.inputAll}>
-       <ul className=' md:text-xl sm:text-l '>
-        
-            
+      <div id='gridList' className={styles.mainDiv}>
+        <div className={styles.inputAll}>
+          <ul className=' md:text-xl sm:text-l '>
+          
         {categories.map((category, index) => (
             <li key={index} className='    sm:left-1/2   sm:text-l md:text-xl '>
-                <input className={styles.input} type='radio' id={category} name='category' 
-                onChange={(e) => setSelectedCategory(e.target.id)}/>
-                <label className={styles.label} htmlFor={category}>{category}</label> 
+              <input className={styles.input} type='radio' id={category} name='category' 
+                 onChange={(e) => setSelectedCategory(e.target.id)}/>
+                  <label className={styles.label} htmlFor={category}>{category}</label> 
             </li>
             ))}
-            </ul> 
-            </div>   
+          </ul> 
+       </div>   
       <Grid className={styles.gallery}>
         
       {galleryLists
@@ -78,13 +77,12 @@ const GalleryList = () => {
           return (
                    
             <GridItem w='100%'  key={id}>
-            <Photo  galleryTitle={galleryTitle} url={url}  />        
+             <Photo  galleryTitle={galleryTitle} url={url}  />        
             </GridItem>
           )
         })}
-          </Grid>
-          
-          </div>
+      </Grid>    
+     </div>
     )
   }
   export default GalleryList

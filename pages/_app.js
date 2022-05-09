@@ -6,6 +6,7 @@ import { ChakraProvider } from "@chakra-ui/react"
 import { AnimatePresence } from 'framer-motion'
 import { FormspreeProvider } from '@formspree/react'
 
+
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
 
 function MyApp({ Component, pageProps, router }) {
