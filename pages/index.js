@@ -1,10 +1,10 @@
-import Navbar from '../components/Navbar'
-import styles from '../styles/Home.module.css'
-import { motion } from 'framer-motion'
-import { AnimatePresence, useTransform, useMotionValue } from 'framer-motion'
+import Navbar from "../components/Navbar"
+import styles from "../styles/Home.module.css"
+import { motion } from "framer-motion"
+import { AnimatePresence, useTransform, useMotionValue } from "framer-motion"
 import { useEffect } from 'react'
-import Footer from '../components/Footer'
-import Cursor from '../components/Cursor'
+import Footer from "../components/Footer"
+import Cursor from "../components/Cursor"
 
 export default function Home() {
 
@@ -15,7 +15,7 @@ export default function Home() {
      initial={{ opacity:0}}
      animate={{ opacity:1}}
      exit={{ opacity: 0}}
-     transition={{ duration: 1.1 }}>
+     transition={{ duration: 0.5 }}>
     <div className={styles.container}>
     <Cursor />
    
@@ -26,25 +26,17 @@ export default function Home() {
         
       </Head> */}
       <Navbar/>
-      
-      
       <motion.div/>
-
       <main  className={styles.main} >
-      
         <h1 className= {styles.title} >
          Charles CANTIN
         </h1>
-
         <p className={styles.description}>
           Photographe
         </p>
-      
       </main>
- 
     </div>
     <Footer />
-    
     </motion.div>
     </AnimatePresence>
   )

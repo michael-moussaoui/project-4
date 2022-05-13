@@ -1,5 +1,5 @@
 import styles from './galleryList.module.css'
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { client } from '../utils/client'
 import React from 'react'
@@ -10,9 +10,10 @@ import { Grid, GridItem } from '@chakra-ui/react'
 
 
 const GalleryList = () => {
+   const sound = useRef()
     const [isGalleryLoading, setIsGalleryLoading] = useState(false)
     const [ galleryLists, setGalleryLists] = useState([])
-    const [rangeValue, setRangeValue] = useState(20)
+    // const [rangeValue, setRangeValue] = useState(20)
     const [selectedCategory, setSelectedCategory] = useState("")
     const categories = [ "baptême","bébé","couple","grossesse","mariage","portrait"]
     

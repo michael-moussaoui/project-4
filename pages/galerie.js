@@ -1,19 +1,15 @@
 /* eslint-disable */
-
-import Image from "next/image";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
+import { chakra, Flex, Box, Grid, } from "@chakra-ui/react"
+import { motion } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
+import { useEffect, useState } from "react"
 import * as contentful from "contentful"
-import GalleryList from "../components/GalleryList";
+import GalleryList from "../components/GalleryList"
 import styles from '../components/galerie.module.css'
+import Cursor from "../components/Cursor"
 
-
-
-// console.log(contentful, 'contentful');
 
 var client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -28,42 +24,27 @@ export default function Galerie({ galeries}  ) {
       <motion.div
       initial={{  opacity:0}}
       animate={{ opacity:1}} 
-      transition={{ duration: 1.1 }}
-      exit={{ opacity:0}}>
-    <Navbar />
-    <Flex 
+      exit={{ opacity:0}}
+      transition={{ duration: 0.5 }}>
+      <Cursor />
+      <Navbar />
+      <Flex 
 	    height="150vh" 
       width="100vw" 
 	    bgImage="url(./camera_9.jpg)"
-      bgRepeat = 'no-repeat'
-      bgPosition = 'center center'
-      bgAttachment = 'fixed'
-      bgSize = 'cover'
-      color= '#fff'
+      bgRepeat = "no-repeat"
+      bgPosition = "center center"
+      bgAttachment = "fixed"
+      bgSize = "cover"
+      color= "#fff"
+      cursor="none"
 	    overflowX="hidden">
 
-    {/* <h1 className=" text-7xl font-basker  absolute top-28 left-1/2 text-lightgray -translate-x-1/2">Galerie</h1> */}
-
-    {/* <div className=" w-full h-4/6 relative top-48 mb-40" > */}
-    {/* <Gallery/> */}
-    {/* </div> */}
-    {/* <div className="h-20 relative right-1/2 -translate-x-1/2 top-[750px]">
-    <Link to='gridList' smooth={true}>
-     <FontAwesomeIcon className='text-5xl cursor-pointer' icon={faAngleDoubleDown}/> 
-    </Link>
-    </div> */}
-    {/* <div className={styles.galleryList}> */}
-    
       <GalleryList  />
-      
-    {/* </div>   */}
-   
-    <Footer m="5vh"/>
-	
-	</Flex>
-    {/* </Layout> */}
-    <AnimatePresence exitBeforeEnter/>
-    </motion.div>  
+     <Footer m="5vh"/>
+	   </Flex>
+     <AnimatePresence exitBeforeEnter/>
+     </motion.div>  
 	)
    }
 
@@ -71,7 +52,7 @@ export default function Galerie({ galeries}  ) {
    
     // Get data from headless cms
     const gallery = await client.getEntries({
-      content_type : 'gallery',
+      content_type : "gallery",
     })
     
     return {

@@ -35,6 +35,9 @@
 	border-radius: 15px;
 	box-shadow: 0 3px 8px lightgray;
 }
+.main:hover {
+	box-shadow: 0 3px 8px violet;
+}
 .li {
 	margin: 0 1.2rem 0 1.2rem;
 	padding: 0.4rem;
@@ -73,6 +76,16 @@
 	margin: 4rem 0;
 	line-height: 1.5;
 	font-size: 1.5rem;
+}
+.description:after {
+	display: block;
+	content: "";
+	transform: scaleX(0);
+	border-bottom: solid 1px #c920a8;
+	transition: transform 0.3s ease-in-out;
+}
+.description:hover:after {
+	transform: scaleX(1);
 }
 
 @media (max-width: 768px) {

@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import { Image } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./navbar.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faInstagram, faTwitter} from "@fortawesome/free-brands-svg-icons"
+
+
 
 
 
@@ -18,10 +20,14 @@ const links = [
 
 export default function Navbar({ children, page }) {
 
+   
+
     const router = useRouter()
+    // const item = useRef()
 
     let [open, setOpen] = useState (false)
     const [navBg, setNavBg] = useState(false)
+    
 
     const changeNavBg = () => {
         console.log(window.scrollY);
@@ -32,6 +38,8 @@ export default function Navbar({ children, page }) {
             setNavBg(false)
         }
     }
+
+    
     useEffect(() => {
         window.addEventListener('scroll', changeNavBg)
          return () => {
@@ -56,7 +64,7 @@ export default function Navbar({ children, page }) {
                 <ul className={`navbar_links flex md:flex-row mr-10 sm:flex-col sm:absolute md:left-1/2 sm:-translate-x-1/2 sm:content-center   md:mt-10  md:inline-flex md:-translate-y-10 w-3/4 mx-auto transition-all duration-1000 ease-in ${open ? 'sm:bg-pink  sm:h-screen sm:w-full sm:z-20 sm:left-1/2 sm:mb-0':' md:bg-transparent sm:h-screen md:h-[100%]  sm:left-[-35rem] sm:mb-40'}`}>
                 { links.map((link) => (
                     
-                    <li 
+                    <li  
                      key={link.name}
                      className={styles.navbar_item} >
                         <Link  href={link.path} passHref>
