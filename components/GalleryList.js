@@ -1,6 +1,5 @@
 import styles from './galleryList.module.css'
 import { useState, useEffect, useCallback, useRef } from 'react';
-import Image from 'next/image';
 import { client } from '../utils/client'
 import React from 'react'
 import Photo from './Photo';

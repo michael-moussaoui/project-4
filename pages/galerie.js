@@ -7,7 +7,6 @@ import { AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
 import * as contentful from "contentful"
 import GalleryList from "../components/GalleryList"
-import styles from '../components/galerie.module.css'
 import Cursor from "../components/Cursor"
 
 

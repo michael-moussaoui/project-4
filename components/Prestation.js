@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
 import { client } from '../utils/client'
 import { motion } from 'framer-motion';
 import Cards from './Cards'
