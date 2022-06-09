@@ -11,8 +11,8 @@ import Cursor from "../components/Cursor"
 
 
 var client = contentful.createClient({
-  accessToken: "process.env.CONTENTFUL_ACCES_TOKEN" ,
-  space: "process.env.CONTENTFUL_SPACE_ID",
+  accessToken: process.env.CONTENTFUL_ACCES_TOKEN ,
+  space: process.env.CONTENTFUL_SPACE_ID,
   
 });
 
