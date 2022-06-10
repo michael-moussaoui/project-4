@@ -16,7 +16,8 @@ module.exports = {
     // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs
     if (!isServer){
       config.resolve.fallback ={
-        fs:false
+        fs:false,
+        "process":false
       }
     }
     // Important: return the modified config
