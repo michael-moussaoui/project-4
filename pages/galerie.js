@@ -9,12 +9,27 @@ import * as contentful from "contentful"
 import GalleryList from "../components/GalleryList"
 import Cursor from "../components/Cursor"
 
-// const contentful = require('contentful')
+export async function getStaticProps() {
+   
+  // const contentful = require('contentful')
 const client = contentful.createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCES_TOKEN ,
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
   
 });
+  // Get data from headless cms
+  const gallery = await client.getEntries({
+    content_type : "gallery",
+  })
+  
+  return {
+    props : {
+    galeries: gallery.includes
+    } 
+  }  
+}
+
+
 
 export default function Galerie({ galeries}  ) {
   
@@ -47,19 +62,7 @@ export default function Galerie({ galeries}  ) {
 	)
    }
 
-  export async function getServerSideProps() {
-   
-    // Get data from headless cms
-    const gallery = await client.getEntries({
-      content_type : "gallery",
-    })
-    
-    return {
-      props : {
-      galeries: gallery.includes
-      } 
-    }  
-  }
+  
   
 
   

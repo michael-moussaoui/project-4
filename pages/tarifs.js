@@ -19,13 +19,31 @@ import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import styles from "../components/tarifs.module.css"
 
-// const contentful = require('contentful')
+
+export async function getStaticProps() {
+
+  // const contentful = require('contentful')
 const client = contentful.createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCES_TOKEN ,
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
  
   
 });
+
+  // Get data from headless cms
+  const prestation = await client.getEntries({
+    content_type: 'prestation',
+  })
+  return{
+    props :{
+      prestations: prestation.includes
+
+    }
+  }
+}
+
+
+
 
 export default function tarifs(){
     return(
@@ -61,17 +79,4 @@ export default function tarifs(){
       
     )} 
     
-    export async function getServerSideProps() {
-
-      // Get data from headless cms
-      const prestation = await client.getEntries({
-        content_type: 'prestation',
-      })
-      return{
-        props :{
-          prestations: prestation.includes
-
-        }
-      }
-    }
- 
+    

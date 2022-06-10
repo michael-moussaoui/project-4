@@ -1,6 +1,6 @@
 import styles from './galleryList.module.css'
 import { useState, useEffect, useCallback, useRef } from 'react';
-// import { client } from '../utils/client'
+import { client } from '../utils/client'
 import React from 'react'
 import Photo from './Photo';
 import { Grid, GridItem } from '@chakra-ui/react'
