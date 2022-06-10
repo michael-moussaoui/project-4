@@ -13,10 +13,10 @@ module.exports = {
   nextConfig,
   
   webpack: (config, { isServer }) => {
-    // Fixes npm packages `that depend on `fs` module
+    // don't resolve 'fs' module on the client to prevent this error on build --> Error: Can't resolve 'fs
     if (!isServer){
-      config.node ={
-        fs:'empty'
+      config.resolve.fallback ={
+        fs:false
       }
     }
     // Important: return the modified config
