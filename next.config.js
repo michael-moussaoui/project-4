@@ -12,8 +12,14 @@ module.exports = {
 },
   nextConfig,
   
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages `that depend on `fs` module
+    if (!isServer){
+      config.node ={
+        fs:'empty'
+      }
+    }
     // Important: return the modified config
     return config
-  },
+  }
 }
