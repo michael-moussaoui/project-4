@@ -8,11 +8,10 @@ import { Grid, GridItem } from '@chakra-ui/react';
 
 
 
-const GalleryList = () => {
+const galleryList = () => {
    const sound = useRef()
     const [isGalleryLoading, setIsGalleryLoading] = useState(false)
     const [ galleryLists, setGalleryLists] = useState([])
-    // const [rangeValue, setRangeValue] = useState(20)
     const [selectedCategory, setSelectedCategory] = useState("")
     const categories = [ "baptême","bébé","couple","grossesse","mariage","portrait"]
     
@@ -85,5 +84,5 @@ const GalleryList = () => {
      </div>
     )
   }
-  export default GalleryList
+  export default galleryList
 

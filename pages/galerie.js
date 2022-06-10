@@ -54,7 +54,7 @@ export default function Galerie({ galeries}  ) {
       cursor="none"
 	    overflowX="hidden">
 
-      <GalleryList  />
+      <GalleryList />
      <Footer m="5vh"/>
 	   </Flex>
      <AnimatePresence exitBeforeEnter/>
