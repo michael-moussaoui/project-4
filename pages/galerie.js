@@ -5,11 +5,11 @@ import { chakra, Flex, Box, Grid, } from "@chakra-ui/react"
 import { motion } from "framer-motion"
 import { AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
-// import * as contentful from "contentful"
+import * as contentful from "contentful"
 import GalleryList from "../components/GalleryList"
 import Cursor from "../components/Cursor"
 
-const contentful = require('contentful')
+// const contentful = require('contentful')
 const client = contentful.createClient({
   accessToken: process.env.CONTENTFUL_ACCES_TOKEN ,
   space: process.env.CONTENTFUL_SPACE_ID,
