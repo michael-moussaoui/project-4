@@ -73,6 +73,12 @@ a {
 	will-change: width, height, transform, border;
 	z-index: 999;
 }
+@media (max-width: 1080px) {
+	.cursor,
+	.cursorBis {
+		display: none;
+	}
+}
 
 @keyframes cursorAnim {
 	0% {
