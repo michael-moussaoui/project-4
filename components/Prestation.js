@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react';
-import { client } from '../utils/client'
+// import { client } from '../utils/client'
 import { motion } from 'framer-motion';
 import Cards from './Cards'
 import { Container,
