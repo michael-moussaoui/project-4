@@ -12,7 +12,7 @@ import Cursor from "../components/Cursor"
 // const contentful = require('contentful')
 const client = contentful.createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCES_TOKEN ,
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
   
 });
 
