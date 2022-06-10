@@ -70,7 +70,7 @@ export default function Navbar({ children, page }) {
                         <Link  href={link.path} passHref>
                             <a className={`cursor-pointer ${
                 router.pathname === link.path
-                  ? ' text-pink bg-black bg-opacity-50 p-1 rounded-lg'
+                  ? ' text-pink bg-black bg-opacity-50  p-1 rounded-lg'
                   : ' hover:scale-50 hover: text-white'
               }`}>{link.name}</a>
                         </Link>
