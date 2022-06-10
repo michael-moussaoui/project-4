@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import { AnimatePresence } from "framer-motion"
 import { useEffect, useState } from "react"
 import * as contentful from "contentful"
-import GalleryList from "../components/GalleryList"
+import GalleryList from "../components/galleryList"
 import Cursor from "../components/Cursor"
 
 export async function getStaticProps() {
