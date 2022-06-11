@@ -7,7 +7,7 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if(window.scrollY > 400) {
+            if(window.scrollY > 50) {
                 setShowTopBtn(true)
             } else {
                 setShowTopBtn(false)
@@ -24,13 +24,14 @@ const ScrollToTop = () => {
     }
   return (
     <div className="top-to-btn">
-    {" "}
+    {/* {" "} */}
     {showTopBtn && (
     <FaArrowAltCircleUp 
          className="icon-position icon-style" 
          onClick={goToTop}
     />
-    )}{" "}
+    )}
+    {/* {" "} */}
     </div>
   )
 }
