@@ -1,17 +1,17 @@
 /* eslint-disable */
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
-import { chakra, Flex, Box, Grid, } from "@chakra-ui/react"
-import { motion } from "framer-motion"
-import { AnimatePresence } from "framer-motion"
-import { useEffect, useState } from "react"
-import * as contentful from "contentful"
-import GalleryList from "../components/galleryList"
-import Cursor from "../components/Cursor"
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import * as contentful from "contentful";
+import GalleryList from "../components/galleryList";
+import Cursor from "../components/Cursor";
+import ScrollToTop from "../components/ScrollToTop";
 
 export async function getStaticProps() {
    
-  // const contentful = require('contentful')
 const client = contentful.createClient({
   accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCES_TOKEN ,
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
@@ -43,7 +43,7 @@ export default function Galerie({ galeries}  ) {
       <Cursor />
       <Navbar />
       <Flex 
-	    height="150vh" 
+	    height="200vh" 
       width="100vw" 
 	    bgImage="url(./camera_9.jpg)"
       bgRepeat = "no-repeat"
@@ -54,6 +54,7 @@ export default function Galerie({ galeries}  ) {
       cursor="none"
 	    overflowX="hidden">
 
+      <ScrollToTop />
       <GalleryList />
      <Footer m="5vh"/>
 	   </Flex>

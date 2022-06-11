@@ -54,7 +54,7 @@ const galleryList = () => {
    
     return (
       
-      <div id='gridList' className={styles.mainDiv}>
+      <div  className={styles.mainDiv}>
         <div className={styles.inputAll}>
           <ul className=' md:text-xl sm:text-l '>
           
@@ -82,6 +82,7 @@ const galleryList = () => {
         })}
       </Grid>    
      </div>
+     
     )
   }
   export default galleryList
