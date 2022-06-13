@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useRef} from "react";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 
 
@@ -7,7 +7,7 @@ const ScrollToTop = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if(window.scrollY > 50) {
+            if(window.scrollY > 100) {
                 setShowTopBtn(true)
             } else {
                 setShowTopBtn(false)
@@ -15,13 +15,16 @@ const ScrollToTop = () => {
         })
     },[])
 
-    const goToTop = () => {
-        window.scrollTo({
-            to:0,
-            behavior:"smooth",
+    // const topRef = useRef(null)
+    // const goToTop = () => topRef.current.scrollIntoView()
+    // const goToTop = () => {
+    //     window.scrollTo({
+    //         to:0, 
+    //         behavior:"smooth",
+        
 
-        })
-    }
+    //     })
+    // }
   return (
     <div className="top-to-btn">
     {/* {" "} */}

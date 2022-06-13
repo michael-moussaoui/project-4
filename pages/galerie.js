@@ -4,11 +4,12 @@ import Footer from "../components/Footer";
 import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, forwardRef } from "react";
 import * as contentful from "contentful";
 import GalleryList from "../components/galleryList";
 import Cursor from "../components/Cursor";
-import ScrollToTop from "../components/ScrollToTop";
+import { FaArrowAltCircleUp } from "react-icons/fa";
+// import ScrollToTop from "../components/ScrollToTop";
 
 export async function getStaticProps() {
    
@@ -17,6 +18,8 @@ const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE,
   
 });
+
+
   // Get data from headless cms
   const gallery = await client.getEntries({
     content_type : "gallery",
@@ -32,6 +35,28 @@ const client = contentful.createClient({
 
 
 export default function Galerie({ galeries}  ) {
+
+    const [showTopBtn,setShowTopBtn] = useState(false)
+  
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if(window.scrollY > 100) {
+                setShowTopBtn(true)
+            } else {
+                setShowTopBtn(false)
+            }
+        })
+    },[])
+
+  const topRef = useRef(null)  
+  const goToTop = () => {
+          window.scrollTo({
+              to:0, 
+              behavior:"smooth",
+          
+  
+          })
+      }
   
   console.log( galeries );
     return (
@@ -41,7 +66,7 @@ export default function Galerie({ galeries}  ) {
       exit={{ opacity:0}}
       transition={{ duration: 0.5 }}>
       <Cursor />
-      <Navbar />
+      <Navbar  />
       <Flex 
 	    height="200vh" 
       width="100vw" 
@@ -54,16 +79,26 @@ export default function Galerie({ galeries}  ) {
       cursor="none"
 	    overflowX="hidden">
 
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
+      <div className="top-to-btn">
+    {/* {" "} */}
+    {showTopBtn && (
+    <FaArrowAltCircleUp 
+         className="icon-position icon-style" 
+         onClick={goToTop}
+    />
+    )}
+    {/* {" "} */}
+    </div>
       <GalleryList />
      <Footer m="5vh"/>
 	   </Flex>
      <AnimatePresence exitBeforeEnter/>
      </motion.div>  
 	)
-   }
+   
 
-  
+}
   
 
   

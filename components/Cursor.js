@@ -49,7 +49,7 @@ setTimeout(() => {
     <div className='cursor'  ref={cursorRef}></div>
     <div className='cursorBis'  ref={cursorBisRef}></div>
     <audio ref={ sound }>
-       <source src="SFB-appphoto.mp3"></source>
+       <source src="SFB-appphot.mp3"></source>
     </audio>  
   </>
   )

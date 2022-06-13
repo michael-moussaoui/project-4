@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import { Image } from "@chakra-ui/react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, forwardRef } from "react";
 import styles from "./navbar.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +18,8 @@ const links = [
     {name:'Contact',path:"/contact"}
 ]
 
-export default function Navbar({ children, page }) {
+// export default function Navbar({ children, page }) {
+    const Navbar = forwardRef(({ goToTop, children }, ref) => {
 
    
 
@@ -50,7 +51,7 @@ export default function Navbar({ children, page }) {
     return (
         <>
              <div className={navBg ?  styles.navbar_ : styles.navbar} >{children}
-            <nav className={` flex   md:float-right sm:float-left text-white font-basker  md:h-16 sm:h-screen sm:w-2/5  md:w-auto `} >
+            <nav  className={` flex   md:float-right sm:float-left text-white font-basker  md:h-16 sm:h-screen sm:w-2/5  md:w-auto `} >
             <Link href = {"/"} passHref>
                 <div className="navbar_logo absolute left-5 mt-2 cursor-pointer ">
                 <Image src="./charles cantin.png" className=" lg:w-20 lg:h-20 md:w-16 md:h-16 sm:w-14 sm:h-14" alt=""/> 
@@ -87,4 +88,5 @@ export default function Navbar({ children, page }) {
         </div>
         </>
     )
-}
+})
+ export default Navbar

@@ -13,6 +13,7 @@ const galleryList = () => {
     const [isGalleryLoading, setIsGalleryLoading] = useState(false)
     const [ galleryLists, setGalleryLists] = useState([])
     const [selectedCategory, setSelectedCategory] = useState("")
+    const [inputBg, setInputBg] = useState(true)
     const categories = [ "baptême","bébé","couple","grossesse","mariage","portrait"]
     
   
@@ -50,12 +51,29 @@ const galleryList = () => {
     useEffect (() => {
       getAllGallery()
     }, [getAllGallery]) 
+
+    const changeInputBg = () =>{
+      console.log(window.scrollY);
+
+      if(window.scrollY >= 30) {
+        setInputBg(false)
+    } else {
+        setInputBg(true)
+    }
+    }
+    useEffect(() => {
+      window.addEventListener('scroll', changeInputBg)
+       return () => {
+           window.removeEventListener('scroll', changeInputBg)
+       }
+  }, [])
     
    
     return (
       
       <div  className={styles.mainDiv}>
-        <div className={styles.inputAll}>
+        {/* <div className={styles.inputAll}> */}
+        <div className={inputBg? styles.inputAll : styles.inputAll_}>
           <ul className=' md:text-xl sm:text-l '>
           
         {categories.map((category, index) => (

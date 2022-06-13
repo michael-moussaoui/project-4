@@ -13,7 +13,7 @@
 /*  GRID */
 .gallery {
 	position: relative;
-	background: #c920a8;
+	//background: #c920a8;
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-gap: 1.5rem;
@@ -24,7 +24,7 @@
 	margin-border: -8vh;
 	overflow-x: hidden;
 	top: 35vh;
-	border: 2px solid pink;
+	//border: 2px solid pink;
 }
 .gallery:after {
 	content: "";
@@ -57,7 +57,20 @@
 }
 .inputAll {
 	position: fixed;
-	z-index: 100;
+	z-index: 50;
+}
+
+@media (max-width: 768px) {
+	.inputAll_ {
+		background-color: #c920a8;
+		opacity: 0.8;
+		border-bottom: 2px solid black;
+		position: fixed;
+		width: 150vw;
+		left: -50px;
+		top: 10vh;
+		z-index: 40;
+	}
 }
 
 /* IMAGE */
