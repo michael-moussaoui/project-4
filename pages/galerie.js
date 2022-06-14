@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
-import { useEffect, useState, useRef, forwardRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import * as contentful from "contentful";
 import GalleryList from "../components/galleryList";
 import Cursor from "../components/Cursor";
@@ -48,15 +48,18 @@ export default function Galerie({ galeries}  ) {
         })
     },[])
 
-  const topRef = useRef(null)  
-  const goToTop = () => {
-          window.scrollTo({
-              to:0, 
-              behavior:"smooth",
+  const topRef = (ref) => window.scrollTo(0, ref.current) 
+  const myRef = useRef(null)
+  const executeScroll = () => topRef(myRef)
+
+  // const goToTop = () => {
+  //         window.scrollTo({
+  //             to:0, 
+  //             behavior:"smooth",
           
   
-          })
-      }
+  //         })
+  //     }
   
   console.log( galeries );
     return (
@@ -67,6 +70,9 @@ export default function Galerie({ galeries}  ) {
       transition={{ duration: 0.5 }}>
       <Cursor />
       <Navbar  />
+      <div ref={myRef}>
+
+      </div>
       <Flex 
 	    height="200vh" 
       width="100vw" 
@@ -85,7 +91,7 @@ export default function Galerie({ galeries}  ) {
     {showTopBtn && (
     <FaArrowAltCircleUp 
          className="icon-position icon-style" 
-         onClick={goToTop}
+         onClick={executeScroll}
     />
     )}
     {/* {" "} */}

@@ -74,14 +74,14 @@ const galleryList = () => {
       <div  className={styles.mainDiv}>
         {/* <div className={styles.inputAll}> */}
         <div className={inputBg? styles.inputAll : styles.inputAll_}>
-          <ul className=' md:text-xl sm:text-l '>
+          <ul className='  lg:-left-10  lg:top-80 md:top-20  sm:top-8 sm:-left-5  sm:w-screen  sm:text-l md:text-xl '>
           
         {categories.map((category, index) => (
-            <li key={index} className='    sm:left-1/2   sm:text-l md:text-xl '>
-              <input className={styles.input} type='radio' id={category} name='category' 
+            <div key={index} className=''>
+              <input  className={styles.input} type='radio' id={category} name='category' 
                  onChange={(e) => setSelectedCategory(e.target.id)}/>
                   <label className={styles.label} htmlFor={category}>{category}</label> 
-            </li>
+            </div>
             ))}
           </ul> 
        </div>   
