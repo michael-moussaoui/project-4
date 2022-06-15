@@ -33,7 +33,7 @@ const links = [
     const changeNavBg = () => {
         console.log(window.scrollY);
        
-        if(window.scrollY >= 250) {
+        if(window.scrollY >= 50) {
             setNavBg(true)
         } else {
             setNavBg(false)

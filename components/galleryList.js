@@ -74,7 +74,7 @@ const galleryList = () => {
       <div  className={styles.mainDiv}>
         {/* <div className={styles.inputAll}> */}
         <div className={inputBg? styles.inputAll : styles.inputAll_}>
-          <ul className='  lg:-left-10  lg:top-80 md:top-20  sm:top-8 sm:-left-5  sm:w-screen  sm:text-l md:text-xl '>
+          <ul className='  lg:-left-10   lg:top-80 md:top-20  sm:top-8 sm:-left-5  sm:w-screen lg:w-auto  sm:text-l md:text-xl '>
           
         {categories.map((category, index) => (
             <div key={index} className=''>
@@ -93,7 +93,7 @@ const galleryList = () => {
           const { id, galleryTitle, url} = item
           return (
                    
-            <GridItem w='100%'  key={id}>
+            <GridItem w='100%'   key={id}>
              <Photo  galleryTitle={galleryTitle} url={url}  />        
             </GridItem>
           )

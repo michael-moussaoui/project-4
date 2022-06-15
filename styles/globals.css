@@ -22,7 +22,6 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
 	background-color: #c920a8; /* color of the tracking thumb */
 	height: 60px;
-
 	border-radius: 20px; /* roundness of the scroll thumb */
 	border: 2px solid #fff; /* creates padding around scroll thumb */
 	opacity: 0.1;

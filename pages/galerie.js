@@ -40,7 +40,7 @@ export default function Galerie({ galeries}  ) {
   
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if(window.scrollY > 100) {
+            if(window.scrollY > 400) {
                 setShowTopBtn(true)
             } else {
                 setShowTopBtn(false)
@@ -69,12 +69,12 @@ export default function Galerie({ galeries}  ) {
       exit={{ opacity:0}}
       transition={{ duration: 0.5 }}>
       <Cursor />
-      <Navbar  />
-      <div ref={myRef}>
+      <Navbar ref={myRef} />
+      {/* <div  className=" absolute h-10 w-10 top-20 bg-pink"> */}
 
-      </div>
+      {/* </div> */}
       <Flex 
-	    height="200vh" 
+	    minHeight="100vh" 
       width="100vw" 
 	    bgImage="url(./camera_9.jpg)"
       bgRepeat = "no-repeat"
@@ -96,7 +96,7 @@ export default function Galerie({ galeries}  ) {
     )}
     {/* {" "} */}
     </div>
-      <GalleryList />
+     <GalleryList  />
      <Footer m="5vh"/>
 	   </Flex>
      <AnimatePresence exitBeforeEnter/>
