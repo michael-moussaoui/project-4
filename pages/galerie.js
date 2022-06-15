@@ -9,7 +9,6 @@ import * as contentful from "contentful";
 import GalleryList from "../components/galleryList";
 import Cursor from "../components/Cursor";
 import { FaArrowAltCircleUp } from "react-icons/fa";
-// import ScrollToTop from "../components/ScrollToTop";
 
 export async function getStaticProps() {
    
@@ -52,15 +51,6 @@ export default function Galerie({ galeries}  ) {
   const myRef = useRef(null)
   const executeScroll = () => topRef(myRef)
 
-  // const goToTop = () => {
-  //         window.scrollTo({
-  //             to:0, 
-  //             behavior:"smooth",
-          
-  
-  //         })
-  //     }
-  
   console.log( galeries );
     return (
       <motion.div
@@ -70,9 +60,6 @@ export default function Galerie({ galeries}  ) {
       transition={{ duration: 0.5 }}>
       <Cursor />
       <Navbar ref={myRef} />
-      {/* <div  className=" absolute h-10 w-10 top-20 bg-pink"> */}
-
-      {/* </div> */}
       <Flex 
 	    minHeight="100vh" 
       width="100vw" 
@@ -85,7 +72,6 @@ export default function Galerie({ galeries}  ) {
       cursor="none"
 	    overflowX="hidden">
 
-      {/* <ScrollToTop /> */}
       <div className="top-to-btn">
     {/* {" "} */}
     {showTopBtn && (

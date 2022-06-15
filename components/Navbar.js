@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from 'next/router'
 import { Image } from "@chakra-ui/react";
-import { useState, useEffect, useRef, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import styles from "./navbar.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -18,15 +18,11 @@ const links = [
     {name:'Contact',path:"/contact"}
 ]
 
-// export default function Navbar({ children, page }) {
-    const Navbar = forwardRef(({ goToTop, children }, ref) => {
-
-   
+    const Navbar = (({  children }) => {
 
     const router = useRouter()
-    // const item = useRef()
 
-    let [open, setOpen] = useState (false)
+    const [open, setOpen] = useState (false)
     const [navBg, setNavBg] = useState(false)
     
 
