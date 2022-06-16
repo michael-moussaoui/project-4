@@ -17,6 +17,7 @@ import {
   Textarea,
   VStack,
 } from '@chakra-ui/react'
+import Head from 'next/head'
 
 export default function Contact() {
    
@@ -41,6 +42,9 @@ export default function Contact() {
      animate={{ opacity:1}}
      exit={{ opacity: 0}}
      transition={{ duration: 0.5 }}>
+     <Head>
+      <title>Contactez-moi</title>
+     </Head>
     <Navbar />
     <Cursor />
     <Flex

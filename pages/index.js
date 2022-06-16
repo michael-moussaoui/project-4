@@ -1,8 +1,8 @@
 import Navbar from "../components/Navbar"
+import Head from "next/head"
 import styles from "../styles/Home.module.css"
 import { motion } from "framer-motion"
 import { AnimatePresence, useTransform, useMotionValue } from "framer-motion"
-import { useEffect } from 'react'
 import Footer from "../components/Footer"
 import Cursor from "../components/Cursor"
 
@@ -17,14 +17,11 @@ export default function Home() {
      exit={{ opacity: 0}}
      transition={{ duration: 0.5 }}>
     <div className={styles.container}>
-    <Cursor />
    
-      {/* <Head>
-        <title>Create Next App</title>
-        
-        <link rel="icon" href="/favicon.ico"/>
-        
-      </Head> */}
+    <Head>
+        <title>Charles CANTIN</title> 
+    </Head>
+    <Cursor />
       <Navbar/>
       <motion.div/>
       <main  className={styles.main} >

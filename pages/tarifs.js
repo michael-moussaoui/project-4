@@ -18,6 +18,7 @@ import { ChakraProvider } from "@chakra-ui/provider";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import styles from "../components/tarifs.module.css"
+import Head from "next/head";
 
 
 export async function getStaticProps() {
@@ -51,6 +52,9 @@ export default function tarifs(){
      animate={{ opacity:1}}
      exit={{ opacity: 0}}
      transition={{ duration: 0.5 }}>
+     <Head>
+      <title>Mes prestations</title>
+     </Head>
         <Navbar />
         <Cursor />
         <ChakraProvider>

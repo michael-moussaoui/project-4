@@ -9,6 +9,7 @@ import * as contentful from "contentful";
 import GalleryList from "../components/galleryList";
 import Cursor from "../components/Cursor";
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import Head from "next/head";
 
 export async function getStaticProps() {
    
@@ -58,6 +59,9 @@ export default function Galerie({ galeries}  ) {
       animate={{ opacity:1}} 
       exit={{ opacity:0}}
       transition={{ duration: 0.5 }}>
+      <Head>
+        <title>Ma galerie photos</title>
+      </Head>
       <Cursor />
       <Navbar ref={myRef} />
       <Flex 
