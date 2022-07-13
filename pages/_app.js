@@ -1,7 +1,7 @@
+import Head from 'next/head'
 import '../styles/globals.css'
-import "@fortawesome/fontawesome-svg-core/styles.css" // import Font Awesome CSS
+import "@fortawesome/fontawesome-svg-core/styles.css" 
 import { config } from "@fortawesome/fontawesome-svg-core"
-// 1. import 'ChakraProvider' component
 import { ChakraProvider } from "@chakra-ui/react"
 import { AnimatePresence } from 'framer-motion'
 import { FormspreeProvider } from '@formspree/react'
@@ -11,6 +11,10 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 
 function MyApp({ Component, pageProps, router }) {
   return (
+  <>
+    <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <AnimatePresence exitBeforeEnter initial={false} >
       <ChakraProvider>
         {/* <FormspreeProvider project="{FormulaireCantin}"> */}
@@ -18,6 +22,7 @@ function MyApp({ Component, pageProps, router }) {
         {/* </FormspreeProvider> */}
       </ChakraProvider>
     </AnimatePresence>
+    </>
   )
 }
 

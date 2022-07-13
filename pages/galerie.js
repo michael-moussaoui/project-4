@@ -1,7 +1,7 @@
-/* eslint-disable */
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { chakra, Flex, Box, Grid, } from "@chakra-ui/react";
+import {  Flex  } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
@@ -39,6 +39,7 @@ export default function Galerie({ galeries}  ) {
     const [showTopBtn,setShowTopBtn] = useState(false)
   
     useEffect(() => {
+      // Display button fo scrollTop
         window.addEventListener("scroll", () => {
             if(window.scrollY > 400) {
                 setShowTopBtn(true)
@@ -47,10 +48,11 @@ export default function Galerie({ galeries}  ) {
             }
         })
     },[])
+   
 
-  const topRef = (ref) => window.scrollTo(0, ref.current) 
-  const myRef = useRef(null)
-  const executeScroll = () => topRef(myRef)
+    const scrollTop = () => {
+      window.scrollTo({ top: 0, behavior:'smooth' })
+    }
 
   console.log( galeries );
     return (
@@ -63,7 +65,7 @@ export default function Galerie({ galeries}  ) {
         <title>Ma galerie photos</title>
       </Head>
       <Cursor />
-      <Navbar ref={myRef} />
+      <Navbar  />
       <Flex 
 	    minHeight="100vh" 
       width="100vw" 
@@ -81,7 +83,7 @@ export default function Galerie({ galeries}  ) {
     {showTopBtn && (
     <FaArrowAltCircleUp 
          className="icon-position icon-style" 
-         onClick={executeScroll}
+         onClick={scrollTop}
     />
     )}
     {/* {" "} */}

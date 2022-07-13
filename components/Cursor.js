@@ -5,7 +5,7 @@ export default function Cursor() {
 
 const cursorRef =useRef( null) 
 const cursorBisRef =useRef('')
-const sound = useRef()
+// const sound = useRef()
 
 
 
@@ -35,7 +35,7 @@ document.addEventListener('click', () => {
 
 if (cursorRef.current == null)
      return;
-sound.current.play()
+// sound.current.play()
 cursorRef.current.classList.add("expand")
 setTimeout(() => {
      if (cursorRef.current == null)
@@ -48,9 +48,9 @@ setTimeout(() => {
   <>
     <div className='cursor'  ref={cursorRef}></div>
     <div className='cursorBis'  ref={cursorBisRef}></div>
-    <audio ref={ sound }>
+    {/* <audio ref={ sound }>
        <source src="SFB-appphot.mp3"></source>
-    </audio>  
+    </audio>   */}
   </>
   )
 }

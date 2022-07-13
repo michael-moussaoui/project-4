@@ -1,4 +1,4 @@
-/* MAIN */
+/**************  MAIN *************/
 .mainDiv {
 	width: 90vw;
 	margin: 0 auto;
@@ -6,7 +6,7 @@
 	top: 15vh;
 }
 
-/*  GRID */
+/*************  GRID *************/
 .gallery {
 	position: sticky;
 	display: grid;
@@ -24,6 +24,8 @@
 	display: block;
 	height: 8vh;
 }
+
+/********* Responsive **********/
 @media (max-width: 325px) {
 	.gallery {
 		top: 45vh;
@@ -42,12 +44,20 @@
 	}
 }
 
-@media (min-width: 1024px) and (max-width: 1280px) {
+@media (min-width: 851px) and (max-width: 1010px) {
 	.gallery {
 		grid-template-columns: repeat(3, 1fr);
 		left: 30px;
 	}
 }
+@media (min-width: 1011px) and (max-width: 1280px) {
+	.gallery {
+		grid-template-columns: repeat(4, 1fr);
+		left: 30px;
+	}
+}
+
+/************* INPUT **********/
 .inputAll,
 .inputAll_ {
 	position: fixed;
@@ -59,7 +69,7 @@
 
 @media (max-width: 850px) {
 	.inputAll_ {
-		background-color: #c920a8;
+		background-color: var(--main-color);
 		opacity: 0.8;
 		border-bottom: 2px solid black;
 		position: fixed;
@@ -69,7 +79,7 @@
 		z-index: 60;
 	}
 }
-/* max-height:600px */
+
 @media (max-width: 850px) {
 	.inputAll {
 		display: none;
@@ -107,15 +117,6 @@
 	}
 }
 
-/* IMAGE */
-.photo {
-	border-radius: 8px;
-}
-
-.photo:hover {
-	box-shadow: 0 3px 8px lightgray;
-}
-
 /* INPUT RADIO */
 
 .input[type="radio"] {
@@ -128,23 +129,23 @@
 	color: lightgray;
 	width: 1rem;
 	height: 1rem;
-	border: 1px solid lightgray;
+	border: 1px solid;
 	border-radius: 50%;
 	transition: 0.5s;
 }
 
 .input[type="radio"]:checked {
-	background: #c920a8;
+	background: var(--main-color);
 	transform: scale(0.7);
-	border: none;
-	box-shadow: 2px 5px 15px #c920a8;
+	border: solid 1px black;
+	box-shadow: 2px 5px 15px var(--main-color);
 }
 .input[type="radio"]:checked::before {
 	transform: scale(1);
 }
 
 .input[type="radio"]:hover {
-	box-shadow: 2px 5px 15px #c920a8;
+	box-shadow: 2px 5px 15px var(--main-color);
 }
 /* Responsive input radio */
 
@@ -166,7 +167,7 @@
 	}
 }
 
-/* Label */
+/* LABEL */
 .label {
 	position: relative;
 	top: 35vh;
@@ -177,7 +178,7 @@
 
 @media (min-width: 1024px) {
 	.label:hover {
-		color: #c920a8;
+		color: var(--main-color);
 	}
 }
 /* Responsive label */
@@ -197,4 +198,13 @@
 @media (min-width: 1024px) and (max-width: 1400px) {
 	.label {
 	}
+}
+
+/********* IMAGE ***********/
+.photo {
+	border-radius: 8px;
+}
+
+.photo:hover {
+	box-shadow: 0 3px 8px lightgray;
 }

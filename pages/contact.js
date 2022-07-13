@@ -101,7 +101,7 @@ export default function Contact() {
                     Nom</FormLabel>
 
                     <InputGroup>
-                      <Input id="name" type="text" name="name" placeholder="Votre nom" _placeholder={{color:'#e947c9'}} backgroundColor="rgba(0,0,0,0.7)" height="16" fontSize="xl" color="lightgray" _focus={{border:'1px solid #e947c9 '}} />
+                      <Input id="name" type="text" name="name" placeholder="Votre nom" _placeholder={{color:'var(--main-color)'}} backgroundColor="rgba(0,0,0,0.7)" height="16" fontSize="xl" color="lightgray" _focus={{border:'1px solid var(--main-color)'}} />
                       <ValidationError prefix="Name" field="name" errors={state.errors} />
                     </InputGroup>
                   </FormControl>

@@ -9,7 +9,7 @@
 	background: rgba(0, 0, 0, 0.6);
 	padding-top: 2vh;
 	color: lightgray;
-	border-top: 1px solid #c920a8;
+	border-top: 1px solid var(--main-color);
 }
 
 .icones {

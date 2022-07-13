@@ -24,7 +24,6 @@ const links = [
 
     const [open, setOpen] = useState (false)
     const [navBg, setNavBg] = useState(false)
-    
 
     const changeNavBg = () => {
         console.log(window.scrollY);
@@ -38,10 +37,12 @@ const links = [
 
     
     useEffect(() => {
-        window.addEventListener('scroll', changeNavBg)
+
+        document.addEventListener('scroll', changeNavBg)
          return () => {
              window.removeEventListener('scroll', changeNavBg)
          }
+         
     }, [])
 
     return (
@@ -81,6 +82,7 @@ const links = [
                 <FontAwesomeIcon className={styles.instagram} icon={faInstagram}></FontAwesomeIcon>
                 </div>
             </nav>
+            
         </div>
         </>
     )
