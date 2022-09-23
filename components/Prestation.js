@@ -6,7 +6,7 @@ import Cards from './Cards'
 import { Container,
     chakra,
     Grid,
-    GridItem,
+    GridItem, 
     Box,
     Text,
     Badge,
