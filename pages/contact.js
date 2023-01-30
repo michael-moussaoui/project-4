@@ -13,6 +13,7 @@ import {
   FormLabel,
   Input,
   InputGroup,
+  Show,
   Stack,
   Textarea,
   VStack,
@@ -22,6 +23,7 @@ import Head from 'next/head'
 export default function Contact() {
    
   const [state, handleSubmit] = useForm("mjvlongq")
+  const [show, setShow] = useState()
   const router = useRouter()
 
   const handleShow = () => setShow( true )
